@@ -5,7 +5,7 @@
         function ($rootScope, $timeout, $state, appSession, configurationService) {
             var vm = this;
 
-            vm.selectedThemeCssClass = "red";
+            vm.selectedThemeCssClass = "indigo";
             vm.themes = [
                 createUiThemeInfo("Red", "red"),
                 createUiThemeInfo("Pink", "pink"),
