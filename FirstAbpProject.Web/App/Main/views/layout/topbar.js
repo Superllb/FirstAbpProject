@@ -16,6 +16,19 @@
                 location.href = abp.appPath + 'AbpLocalization/ChangeCulture?cultureName=' + languageName + '&returnUrl=' + window.location.pathname + window.location.hash;
             }
 
+			vm.userEmailAddress = appSession.user.emailAddress;
+			vm.getShownUserName = function() {
+				if (!abp.multiTenancy.isEnabled) {
+					return appSession.user.userName;
+				} else {
+					if (appSession.tenant) {
+						return appSession.tenant.tenancyName + '\\' + appSession.user.userName;
+					} else {
+						return '.\\' + appSession.user.userName;
+					}
+				}
+			}
+
             init();
 
         }

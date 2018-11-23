@@ -227,7 +227,8 @@ namespace FirstAbpProject.Web.Controllers
                 return false; //No registration enabled for host users!
             }
 
-            return true;
+            // Always hide register button at login page
+            return false;
         }
 
         [HttpPost]

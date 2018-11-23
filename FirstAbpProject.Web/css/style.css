@@ -37,6 +37,66 @@
   .navbar .navbar-collapse.in {
     overflow: visible; }
 
+.user-info {
+    padding: 10px 15px 12px 15px;
+    white-space: nowrap;
+    position: relative;
+}
+
+    .user-info .image {
+        float: left;
+        display: inline-block;
+    }
+
+        .user-info .image img {
+            -webkit-border-radius: 50%;
+            -moz-border-radius: 50%;
+            border-radius: 50%;
+            vertical-align: bottom !important;
+        }
+
+    .user-info .info-container {
+        float: left;
+        margin-right: 10px;
+        cursor: default;
+        display: block;
+        position: relative;
+        top: 6px;
+    }
+
+        .user-info .info-container .name {
+            white-space: nowrap;
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-size: 14px;
+            max-width: 200px;
+            color: #fff;
+        }
+
+        .user-info .info-container .email {
+            white-space: nowrap;
+            -ms-text-overflow: ellipsis;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            font-size: 12px;
+            max-width: 200px;
+            color: #fff;
+        }
+
+        .user-info .info-container .user-helper-dropdown {
+            position: absolute;
+            right: -22px;
+            bottom: 0px;
+            -webkit-box-shadow: none;
+            -moz-box-shadow: none;
+            box-shadow: none;
+            cursor: pointer;
+            color: #fff;
+        }
+
 .ls-closed .sidebar {
   margin-left: -300px; }
 
