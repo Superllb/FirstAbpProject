@@ -55,5 +55,15 @@
     <text name="Yes" value="是" />
     <text name="No" value="否" />
     <text name="Optional" value="可选的" />
+
+    <text name="Actions">操作</text>
+    <text name="Roles">角色</text>
+    <text name="RoleName">角色名</text>
+    <text name="DisplayName">显示名</text>
+    <text name="CreateNewRole">创建新角色</text>
+    <text name="EditRole">编辑角色</text>
+    <text name="EditUser">编辑用户</text>
+    <text name="Edit">编辑</text>
+    <text name="Delete">删除</text>
   </texts>
 </localizationDictionary>
