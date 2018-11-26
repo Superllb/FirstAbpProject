@@ -65,5 +65,7 @@
     <text name="EditUser">编辑用户</text>
     <text name="Edit">编辑</text>
     <text name="Delete">删除</text>
+
+    <text name="Permissions">权限</text>
   </texts>
 </localizationDictionary>
