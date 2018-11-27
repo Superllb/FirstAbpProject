@@ -74,9 +74,10 @@
     <text name="CreateNewRole">Create New Role</text>
     <text name="EditRole">Edit Role</text>
     <text name="EditUser">Edit User</text>
+    <text name="RoleDescription">Role Description</text>
     <text name="Edit">Edit</text>
     <text name="Delete">Delete</text>
 
-
+    <text name="Clients">Clients</text>
   </texts>
 </localizationDictionary>

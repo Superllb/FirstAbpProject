@@ -8,6 +8,7 @@ namespace FirstAbpProject.Authorization
     {
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
+            context.CreatePermission(PermissionNames.Pages_Clients, L("Clients"));
             context.CreatePermission(PermissionNames.Pages_Users, L("Users"));
             context.CreatePermission(PermissionNames.Pages_Roles, L("Roles"));
             context.CreatePermission(PermissionNames.Pages_Tenants, L("Tenants"), multiTenancySides: MultiTenancySides.Host);
