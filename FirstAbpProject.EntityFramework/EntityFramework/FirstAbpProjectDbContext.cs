@@ -1,15 +1,20 @@
-﻿using System.Data.Common;
+﻿using System.Configuration;
+using System.Data.Common;
 using System.Data.Entity;
 using Abp.Zero.EntityFramework;
 using FirstAbpProject.Authorization.Roles;
 using FirstAbpProject.Authorization.Users;
+using FirstAbpProject.Clients;
 using FirstAbpProject.MultiTenancy;
 
 namespace FirstAbpProject.EntityFramework
 {
     public class FirstAbpProjectDbContext : AbpZeroDbContext<Tenant, Role, User>
     {
+        private readonly int SqlCommandTimeout = int.Parse(ConfigurationManager.AppSettings["SqlCommandTimeout"]);
+
         //TODO: Define an IDbSet for your Entities...
+        public virtual IDbSet<Client> Clients { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
@@ -47,8 +52,13 @@ namespace FirstAbpProject.EntityFramework
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            Database.CommandTimeout = SqlCommandTimeout;
+
+            Database.SetInitializer<FirstAbpProjectDbContext>(null);
+
             base.OnModelCreating(modelBuilder);
 
+            modelBuilder.Ignore<System.Threading.Tasks.Task>();
         }
     }
 }

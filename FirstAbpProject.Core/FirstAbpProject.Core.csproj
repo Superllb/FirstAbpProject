@@ -199,6 +199,7 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\Client.cs" />
     <Compile Include="FirstAbpProjectConsts.cs" />
     <Compile Include="FirstAbpProjectCoreModule.cs" />
     <Compile Include="AppVersionHelper.cs" />
