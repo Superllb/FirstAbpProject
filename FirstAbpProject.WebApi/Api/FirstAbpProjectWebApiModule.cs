@@ -1,5 +1,6 @@
 ﻿using System.Reflection;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using Abp.Application.Services;
 using Abp.Configuration.Startup;
 using Abp.Modules;
@@ -12,6 +13,10 @@ namespace FirstAbpProject.Api
     {
         public override void Initialize()
         {
+            // Allow CORS
+            var cors = new EnableCorsAttribute("*", "*", "*");
+            Configuration.Modules.AbpWebApi().HttpConfiguration.EnableCors(cors);
+
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
 
             Configuration.Modules.AbpWebApi().DynamicApiControllerBuilder
