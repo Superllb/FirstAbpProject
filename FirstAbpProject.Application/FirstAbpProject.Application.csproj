@@ -211,6 +211,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clients\ClientAppService.cs" />
+    <Compile Include="Clients\Dto\ClientDto.cs" />
+    <Compile Include="Clients\Dto\CreateClientInput.cs" />
+    <Compile Include="Clients\Dto\UpdateClientInput.cs" />
+    <Compile Include="Clients\IClientAppService.cs" />
     <Compile Include="FirstAbpProjectApplicationModule.cs" />
     <Compile Include="FirstAbpProjectAppServiceBase.cs" />
     <Compile Include="Authorization\Accounts\AccountAppService.cs" />
@@ -225,6 +230,7 @@
     <Compile Include="Configuration\IConfigurationAppService.cs" />
     <Compile Include="Configuration\Ui\UiThemeInfo.cs" />
     <Compile Include="Configuration\Ui\UiThemes.cs" />
+    <Compile Include="FirstAbpProjectPagedResultRequestDto.cs" />
     <Compile Include="MultiTenancy\Dto\CreateTenantDto.cs" />
     <Compile Include="MultiTenancy\Dto\EditTenantDto.cs" />
     <Compile Include="MultiTenancy\Dto\TenantDto.cs" />
