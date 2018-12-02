@@ -5,6 +5,7 @@ using Abp.Authorization.Users;
 using Abp.AutoMapper;
 using Abp.Domain.Repositories;
 using Abp.Modules;
+using Abp.Timing;
 using FirstAbpProject.Authorization.Roles;
 using FirstAbpProject.Authorization.Users;
 using FirstAbpProject.Roles.Dto;
@@ -22,6 +23,9 @@ namespace FirstAbpProject
         public override void Initialize()
         {
             IocManager.RegisterAssemblyByConvention(Assembly.GetExecutingAssembly());
+
+            // Set UTC time as default
+            Clock.Provider = ClockProviders.Utc;
 
             // TODO: Is there somewhere else to store these, with the dto classes
             Configuration.Modules.AbpAutoMapper().Configurators.Add(cfg =>

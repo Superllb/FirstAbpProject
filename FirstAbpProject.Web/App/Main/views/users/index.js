@@ -2,6 +2,7 @@
     angular.module('app').controller('app.views.users.index', [
         '$scope', '$timeout', '$uibModal', 'abp.services.app.user',
         function ($scope, $timeout, $uibModal, userService) {
+            $("#globalMask").hide();
             var vm = this;
 
             vm.users = [];

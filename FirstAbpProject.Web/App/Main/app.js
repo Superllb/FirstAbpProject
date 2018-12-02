@@ -20,6 +20,16 @@
             $urlRouterProvider.otherwise('/');
             $qProvider.errorOnUnhandledRejections(false);
 
+            if (abp.auth.hasPermission("Pages.Clients")) {
+                $stateProvider
+                    .state("clients", {
+                        url: "/clients",
+                        templateUrl: "/App/Main/views/clients/index.cshtml",
+                        menu: "Clients" //Matches to name of 'Clients' menu in FirstAbpProjectNavigationProvider
+                    });
+                $urlRouterProvider.otherwise("/clients");
+            }
+
             if (abp.auth.hasPermission('Pages.Users')) {
                 $stateProvider
                     .state('users', {
@@ -61,6 +71,10 @@
                     templateUrl: '/App/Main/views/about/about.cshtml',
                     menu: 'About' //Matches to name of 'About' menu in FirstAbpProjectNavigationProvider
                 });
+
+            $urlRouterProvider.otherwise('/');
+
+            abp.localization.defaultSourceName = 'FirstAbpProject';
         }
     ]);
 

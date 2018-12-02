@@ -2,6 +2,7 @@
     angular.module('app').controller('app.views.roles.index', [
         '$scope', '$uibModal', 'abp.services.app.role',
         function ($scope, $uibModal, roleService) {
+            $("#globalMask").hide();
             var vm = this;
 
             vm.roles = [];

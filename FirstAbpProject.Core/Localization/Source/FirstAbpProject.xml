@@ -20,6 +20,7 @@
     <text name="Password" value="Password" />
     <text name="RememberMe" value="Remember me" />
     <text name="LogIn" value="Log in" />
+    <text name="ActionSuccess" value="The operation is successful!" />
 
     <text name="LoginFailed" value="Login failed!" />
 
@@ -28,6 +29,10 @@
     <text name="Name" value="Name" />
     <text name="Surname" value="Surname" />
     <text name="EmailAddress" value="Email address" />
+    <text name="UserDetails">User Details</text>
+    <text name="UserRoles">User Roles</text>
+    <text name="ConfirmPassword" value="Confirm Password" />
+    <text name="AreYouSure" value="Are you sure?" />
 
     <text name="Tenants" value="Tenants" />
     <text name="SavedSuccessfully" value="Saved successfully" />
@@ -77,7 +82,29 @@
     <text name="RoleDescription">Role Description</text>
     <text name="Edit">Edit</text>
     <text name="Delete">Delete</text>
-
+    <text name="Permissions">Permissions</text>
+    
+    <!--Clients-->
     <text name="Clients">Clients</text>
+    <text name="Client">Client</text>
+    <text name="CreateNewClient">Create New Client</text>
+    <text name="EditClient">Edit Client</text>
+    <text name="ClientId">Client Id</text>
+    <text name="Id">Id</text>
+    <text name="Code">Code</text>
+    <text name="ClientName">Client Name</text>
+    <text name="ClientEnglishName">Client English Name</text>
+    <text name="InvalidClient">nvalid Client</text>
+    <text name="InvalidCodeAndExist">Code already exists, please enter another Code</text>
+    <text name="InvalidClientCode">Invalid client code. Client code must end with .dev/.test/.cn/.na/.pre</text>
+  
+    <text name="First">First</text>
+    <text name="Previous">Previous</text>
+    <text name="Next">Next</text>
+    <text name="Last">Last</text>
+    <text name="Total">Total</text>
+    <text name="Search">Search</text>
+    <text name="Refresh">Refresh</text>
+    
   </texts>
 </localizationDictionary>

@@ -5,8 +5,15 @@ using System.Text;
 using System.Threading.Tasks;
 using Abp.Application.Services;
 using Abp.Application.Services.Dto;
+using Abp.Authorization;
+using Abp.AutoMapper;
 using Abp.Domain.Repositories;
+using Abp.Linq.Extensions;
 using Abp.Localization;
+using Abp.UI;
+using AutoMapper;
+using FirstAbpProject.Authorization;
+using FirstAbpProject.Authorization.Users;
 using FirstAbpProject.Clients.Dto;
 
 namespace FirstAbpProject.Clients
@@ -14,65 +21,140 @@ namespace FirstAbpProject.Clients
     public class ClientAppService : AsyncCrudAppService<Client, ClientDto, int, FirstAbpProjectPagedResultRequestDto, CreateClientInput, UpdateClientInput>, IClientAppService
     {
         private readonly IRepository<Client, int> _clientRepository;
+        private readonly UserManager _userManager;
         private readonly ILocalizationManager _localizationManager;
 
         public ClientAppService(IRepository<Client, int> clientRepository, 
+            UserManager userManager, 
             ILocalizationManager localizationManager)
             : base(clientRepository)
         {
             LocalizationSourceName = FirstAbpProjectConsts.LocalizationSourceName;
+            _userManager = userManager;
             _clientRepository = clientRepository;
             _localizationManager = localizationManager;
         }
 
-        public override Task<ClientDto> Create(CreateClientInput input)
+        [AbpAuthorize(PermissionNames.Pages_Clients)]
+        public override async Task<ClientDto> Create(CreateClientInput input)
         {
-            return base.Create(input);
+            #region Check client code naming rule
+            if (input.Code.Split('.').Length != 2)
+            {
+                throw new UserFriendlyException(L("InvalidClientCode"));
+            }
+            #endregion
+
+            if (_clientRepository.GetAll().Any(c => c.Code == input.Code))
+            {
+                throw new UserFriendlyException(L("InvalidCodeAndExist"));
+            }
+
+            CheckCreatePermission();
+            var clientInput = input.MapTo<Client>();
+            clientInput.CreatorUserId = AbpSession.UserId.GetValueOrDefault();
+            var clientId = await _clientRepository.InsertAndGetIdAsync(clientInput);
+
+            var client = _clientRepository.Get(clientId);
+            var clientDto = MapToEntityDto(client);
+
+            return clientDto;
         }
 
-        public override Task Delete(EntityDto<int> input)
+        public override async Task Delete(EntityDto<int> input)
         {
-            return base.Delete(input);
+            var client = await _clientRepository.GetAsync(input.Id);
+            client.IsDeleted = true;
+            client.IsActive = false;
+            client.DeletionTime = DateTime.UtcNow;
+            client.DeleteUserId = AbpSession.UserId.GetValueOrDefault();
+            await _clientRepository.UpdateAsync(client);
         }
 
-        public override Task<ClientDto> Get(EntityDto<int> input)
+        [AbpAuthorize(PermissionNames.Pages_Clients)]
+        public override async Task<ClientDto> Get(EntityDto<int> input)
         {
-            return base.Get(input);
+            var client = await base.Get(input);
+            return client;
         }
 
-        public override Task<PagedResultDto<ClientDto>> GetAll(FirstAbpProjectPagedResultRequestDto input)
+        [AbpAuthorize(PermissionNames.Pages_Clients)]
+        public override async Task<PagedResultDto<ClientDto>> GetAll(FirstAbpProjectPagedResultRequestDto input)
         {
-            return base.GetAll(input);
+            CheckGetAllPermission();
+            var language = _localizationManager.GetString(FirstAbpProjectConsts.LocalizationSourceName, "Language");
+            var query = _clientRepository.GetAll().Where(q => !q.IsDeleted);
+            
+            if (!string.IsNullOrEmpty(input.Filter))
+            {
+                query = query.Where(q => q.Name.Contains(input.Filter) || q.NameEn.Contains(input.Filter));
+            }
+            
+            var totalCount = query.Count();
+            List<Client> clients = new List<Client>();
+            if (input.IsNotPaged)
+            {
+                clients = query.OrderBy(q => q.CreationTime).ToList();
+            }
+            else
+            {
+                clients = query.OrderByDescending(q => q.CreationTime).PageBy(input).ToList();
+            }
+
+            return new PagedResultDto<ClientDto>(
+                totalCount,
+                Mapper.Map<List<ClientDto>>(clients)
+            );
         }
 
         public List<ClientDto> GetAllClients()
         {
-            throw new NotImplementedException();
+            CheckGetAllPermission();
+            var language = _localizationManager.GetString(FirstAbpProjectConsts.LocalizationSourceName, "Language");
+            var query = _clientRepository.GetAll().Where(q => !q.IsDeleted);
+
+            var clients = query.OrderBy(q => q.CreationTime).ToList();
+
+            return Mapper.Map<List<ClientDto>>(clients);
         }
 
-        public Task<ClientDto> GetClientByIdAsync(int id)
+        public async Task<ClientDto> GetClientByIdAsync(int id)
         {
-            throw new NotImplementedException();
+            var client = await _clientRepository.GetAsync(id);
+            var clientDto = MapToEntityDto(client);
+
+            return clientDto;
         }
 
-        public override Task<ClientDto> Update(UpdateClientInput input)
+        [AbpAuthorize(PermissionNames.Pages_Clients)]
+        public override async Task<ClientDto> Update(UpdateClientInput input)
         {
-            return base.Update(input);
+            CheckUpdatePermission();
+
+            var client = await _clientRepository.GetAsync(input.Id);
+            MapToEntity(input, client);
+            client.LastModificationTime = DateTime.UtcNow;
+            client.LastModifierUserId = AbpSession.UserId.GetValueOrDefault();
+
+            await _clientRepository.UpdateAsync(client);
+
+            return await Get(input);
         }
 
         protected override IQueryable<Client> ApplySorting(IQueryable<Client> query, FirstAbpProjectPagedResultRequestDto input)
         {
             return base.ApplySorting(query, input);
         }
-
+        
         protected override Client MapToEntity(CreateClientInput createInput)
         {
-            return base.MapToEntity(createInput);
+            var client = ObjectMapper.Map<Client>(createInput);
+            return client;
         }
 
-        protected override void MapToEntity(UpdateClientInput updateInput, Client entity)
+        protected override void MapToEntity(UpdateClientInput input, Client client)
         {
-            base.MapToEntity(updateInput, entity);
+            ObjectMapper.Map(input, client);
         }
     }
 }

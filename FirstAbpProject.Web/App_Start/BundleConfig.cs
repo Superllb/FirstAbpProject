@@ -105,8 +105,18 @@ namespace FirstAbpProject.Web
                         "~/Abp/Framework/scripts/libs/angularjs/abp.ng.js",
 
                         "~/js/admin.js",
+                        "~/js/main.js",
+
                         "~/Scripts/jquery.signalR-2.2.3.min.js",
-                        "~/js/main.js"
+
+                        "~/Scripts/jqPaginator.js",
+                        "~/Scripts/bootstrap-datepicker.min.js",
+                        "~/Scripts/locales/bootstrap-datepicker.zh-CN.min.js",
+                        "~/Scripts/bootstrap-datepicker-globalize.js",
+                        "~/Scripts/bootstrap-select.js",
+                        "~/Scripts/angular-bootstrap-select.js",
+                        "~/Scripts/fabric.min.js",
+                        "~/lib/echart/echarts.min.js"
                     )
                 );
 
