@@ -200,6 +200,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clients\Client.cs" />
+    <Compile Include="Coolers\Cooler.cs" />
     <Compile Include="FirstAbpProjectConsts.cs" />
     <Compile Include="FirstAbpProjectCoreModule.cs" />
     <Compile Include="AppVersionHelper.cs" />
@@ -223,6 +224,8 @@
     <Compile Include="Authorization\Users\User.cs" />
     <Compile Include="Authorization\Users\UserManager.cs" />
     <Compile Include="Authorization\Users\UserStore.cs" />
+    <Compile Include="Sloths\Sloth.cs" />
+    <Compile Include="Status.cs" />
     <Compile Include="Validation\ValidationHelper.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -258,6 +261,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Localization\Source\FirstAbpProject-vi.xml" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

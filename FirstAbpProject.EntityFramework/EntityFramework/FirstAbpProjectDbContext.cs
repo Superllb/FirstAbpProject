@@ -5,7 +5,9 @@ using Abp.Zero.EntityFramework;
 using FirstAbpProject.Authorization.Roles;
 using FirstAbpProject.Authorization.Users;
 using FirstAbpProject.Clients;
+using FirstAbpProject.Coolers;
 using FirstAbpProject.MultiTenancy;
+using FirstAbpProject.Sloths;
 
 namespace FirstAbpProject.EntityFramework
 {
@@ -15,6 +17,8 @@ namespace FirstAbpProject.EntityFramework
 
         //TODO: Define an IDbSet for your Entities...
         public virtual IDbSet<Client> Clients { get; set; }
+        public virtual IDbSet<Cooler> Coolers { get; set; }
+        public virtual IDbSet<Sloth> Sloths { get; set; }
 
         /* NOTE: 
          *   Setting "Default" to base class helps us when working migration commands on Package Manager Console.
