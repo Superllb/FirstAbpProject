@@ -105,6 +105,8 @@
     <text name="Total">Total</text>
     <text name="Search">Search</text>
     <text name="Refresh">Refresh</text>
+
+    <text name="Coolers">Coolers</text>
     
   </texts>
 </localizationDictionary>

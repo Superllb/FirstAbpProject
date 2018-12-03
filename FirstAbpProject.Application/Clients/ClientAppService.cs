@@ -94,11 +94,11 @@ namespace FirstAbpProject.Clients
             List<Client> clients = new List<Client>();
             if (input.IsNotPaged)
             {
-                clients = query.OrderBy(q => q.CreationTime).ToList();
+                clients = query.OrderBy(q => q.Id).ToList();
             }
             else
             {
-                clients = query.OrderByDescending(q => q.CreationTime).PageBy(input).ToList();
+                clients = query.OrderBy(q => q.Id).PageBy(input).ToList();
             }
 
             return new PagedResultDto<ClientDto>(

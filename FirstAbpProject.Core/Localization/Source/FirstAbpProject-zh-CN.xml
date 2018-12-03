@@ -94,6 +94,8 @@
     <text name="Total">总数</text>
     <text name="Search">搜索</text>
     <text name="Refresh">刷新</text>
+
+    <text name="Coolers">冰箱</text>
     
   </texts>
 </localizationDictionary>
