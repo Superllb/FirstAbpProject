@@ -29,6 +29,7 @@
     <text name="Name" value="Name" />
     <text name="Surname" value="Surname" />
     <text name="EmailAddress" value="Email address" />
+    <text name="Leader" value="Leader" />
     <text name="UserDetails">User Details</text>
     <text name="UserRoles">User Roles</text>
     <text name="ConfirmPassword" value="Confirm Password" />
@@ -107,6 +108,7 @@
     <text name="Refresh">Refresh</text>
 
     <text name="Coolers">Coolers</text>
+    <text name="PleaseSelect" value="Please Select" />
     
   </texts>
 </localizationDictionary>

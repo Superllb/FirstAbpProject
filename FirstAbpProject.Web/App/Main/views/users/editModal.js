@@ -8,6 +8,7 @@
                 isActive: true
             };
 
+            vm.users = [];
             vm.roles = [];
 
             var setAssignedRoles = function (user, roles) {
@@ -15,6 +16,13 @@
                     var role = roles[i];
                     role.isAssigned = $.inArray(role.name, user.roles) >= 0;
                 }
+                getUsers();
+            }
+
+            function getUsers() {
+                userService.getAll({}).then(function (result) {
+                    vm.users = result.data.items;
+                });
             }
 
             var init = function () {

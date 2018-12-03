@@ -8,7 +8,14 @@
                 isActive: true
             };
 
+            vm.users = [];
             vm.roles = [];
+
+            function getUsers() {
+                userService.getAll({}).then(function (result) {
+                    vm.users = result.data.items;
+                });
+            }
 
             function getRoles() {
                 userService.getRoles()
@@ -41,6 +48,7 @@
                 $uibModalInstance.dismiss({});
             };
 
+            getUsers();
             getRoles();
         }
     ]);

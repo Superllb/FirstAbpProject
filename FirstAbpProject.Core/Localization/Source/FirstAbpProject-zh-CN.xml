@@ -29,6 +29,7 @@
     <text name="Name" value="名" />
     <text name="Surname" value="姓" />
     <text name="EmailAddress" value="邮箱地址" />
+    <text name="Leader" value="上级" />
     <text name="UserDetails">用户详情</text>
     <text name="UserRoles">用户角色</text>
     <text name="ConfirmPassword" value="确认密码" />
@@ -96,6 +97,7 @@
     <text name="Refresh">刷新</text>
 
     <text name="Coolers">冰箱</text>
+    <text name="PleaseSelect" value="请选择" />
     
   </texts>
 </localizationDictionary>

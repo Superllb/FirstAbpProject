@@ -26,6 +26,7 @@
                             <th>@L("UserName")</th>
                             <th>@L("FullName")</th>
                             <th>@L("EmailAddress")</th>
+                            <th>@L("Leader")</th>
                             <th>
                                 <div style="text-align:center">@L("IsActive")</div>
                             </th>
@@ -37,6 +38,7 @@
                             <td>{{user.userName}}</td>
                             <td>{{user.fullName}}</td>
                             <td>{{user.emailAddress}}</td>
+                            <td>{{user | getLeader}}</td>
                             <td align="center">
                                 <i class="material-icons" ng-if="user.isActive" style="color:green;">check_box</i>
                                 <i class="material-icons" ng-if="!user.isActive" style="color:red;">indeterminate_check_box</i>

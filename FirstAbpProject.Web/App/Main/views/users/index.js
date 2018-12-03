@@ -10,8 +10,18 @@
             function getUsers() {
                 userService.getAll({}).then(function (result) {
                     vm.users = result.data.items;
+                    $scope.users = vm.users;
                 });
             }
+
+            vm.getLeaderNameById = function (user) {
+                for (var item in vm.users) {
+                    if (item.id === user.leaderId) {
+                        return item.userName;
+                    }
+                }
+                return null;
+            };
 
             vm.openUserCreationModal = function () {
                 var modalInstance = $uibModal.open({

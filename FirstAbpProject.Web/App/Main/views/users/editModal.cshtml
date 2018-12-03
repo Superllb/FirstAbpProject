@@ -20,7 +20,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row clearfix">
                     <div class="col-sm-6">
                         <div class="form-group form-float">
@@ -39,7 +38,19 @@
                         </div>
                     </div>
                 </div>
-
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line focused">
+                                <select id="leader" ng-model='vm.user.leaderId'
+                                        ng-options="user.id as user.userName for user in vm.users" class="form-control">
+                                    <option value="">---@L("PleaseSelect")---</option>
+                                </select>
+                                <label for="leader" class="form-label">@L("Leader")</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row clearfix">
                     <div class="col-sm-12">
                         <div class="form-group form-float">
@@ -50,7 +61,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="row clearfix">
                     <div class="col-sm-12">
                         <div class="form-group form-float">
