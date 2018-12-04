@@ -14,15 +14,6 @@
                 });
             }
 
-            vm.getLeaderNameById = function (user) {
-                for (var item in vm.users) {
-                    if (item.id === user.leaderId) {
-                        return item.userName;
-                    }
-                }
-                return null;
-            };
-
             vm.openUserCreationModal = function () {
                 var modalInstance = $uibModal.open({
                     templateUrl: '/App/Main/views/users/createModal.cshtml',

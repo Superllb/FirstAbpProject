@@ -22,7 +22,7 @@ namespace FirstAbpProject.Users.Dto
         [StringLength(AbpUserBase.MaxSurnameLength)]
         public string Surname { get; set; }
 
-        public long? LeaderId { get; set; }
+        public string LeaderName { get; set; }
 
         [Required]
         [EmailAddress]

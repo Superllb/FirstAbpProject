@@ -36,6 +36,24 @@ namespace FirstAbpProject.Users
             _roleManager = roleManager;
         }
 
+        public override async Task<PagedResultDto<UserDto>> GetAll(PagedResultRequestDto input)
+        {
+            CheckGetAllPermission();
+            var query = CreateFilteredQuery(input);
+
+            var totalCount = await AsyncQueryableExecuter.CountAsync(query);
+
+            query = ApplySorting(query, input);
+            query = ApplyPaging(query, input);
+
+            var entities = await AsyncQueryableExecuter.ToListAsync(query);
+
+            return new PagedResultDto<UserDto>(
+                totalCount,
+                entities.Select(MapToEntityDto).ToList()
+            );
+        }
+
         public override async Task<UserDto> Get(EntityDto<long> input)
         {
             var user = await base.Get(input);
@@ -129,6 +147,20 @@ namespace FirstAbpProject.Users
         protected virtual void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);
+        }
+
+        protected override UserDto MapToEntityDto(User entity)
+        {
+            var user = base.MapToEntityDto(entity);
+            if (entity.LeaderId.HasValue)
+            {
+                var leader = base.GetEntityByIdAsync(entity.LeaderId.Value).Result;
+                if (leader != null)
+                {
+                    user.LeaderName = leader.UserName;
+                }
+            }
+            return user;
         }
     }
 }
