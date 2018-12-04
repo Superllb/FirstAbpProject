@@ -10,7 +10,6 @@
             function getUsers() {
                 userService.getAll({}).then(function (result) {
                     vm.users = result.data.items;
-                    $scope.users = vm.users;
                 });
             }
 

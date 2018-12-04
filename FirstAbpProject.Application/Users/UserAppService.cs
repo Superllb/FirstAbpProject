@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
@@ -48,15 +49,31 @@ namespace FirstAbpProject.Users
 
             var entities = await AsyncQueryableExecuter.ToListAsync(query);
 
+            var users = entities.Select(MapToEntityDto).ToList();
+            users.Select(t => {
+                var entity = entities.FirstOrDefault(u => u.Id == t.Id);
+                if (entity.LeaderId.HasValue)
+                {
+                    t.LeaderName = entities.FirstOrDefault(u => u.Id == entity.LeaderId.Value).UserName; 
+                }
+                return t;
+            }).ToList();
+
             return new PagedResultDto<UserDto>(
                 totalCount,
-                entities.Select(MapToEntityDto).ToList()
+                users
             );
         }
 
         public override async Task<UserDto> Get(EntityDto<long> input)
         {
             var user = await base.Get(input);
+            var entity = await base.GetEntityByIdAsync(user.Id);
+            if (entity.LeaderId.HasValue)
+            {
+                var leader = await base.GetEntityByIdAsync(entity.LeaderId.Value);
+                user.LeaderName = leader.UserName;
+            }
             var userRoles = await _userManager.GetRolesAsync(user.Id);
             user.Roles = userRoles.Select(ur => ur).ToArray();
             return user;
@@ -84,7 +101,12 @@ namespace FirstAbpProject.Users
 
             await CurrentUnitOfWork.SaveChangesAsync();
 
-            return MapToEntityDto(user);
+            var userDto = MapToEntityDto(user);
+            if (user.LeaderId.HasValue)
+            {
+                userDto.LeaderName = base.GetEntityByIdAsync(user.LeaderId.Value).Result.UserName;
+            }
+            return userDto;
         }
 
         public override async Task<UserDto> Update(UpdateUserDto input)
@@ -147,20 +169,6 @@ namespace FirstAbpProject.Users
         protected virtual void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);
-        }
-
-        protected override UserDto MapToEntityDto(User entity)
-        {
-            var user = base.MapToEntityDto(entity);
-            if (entity.LeaderId.HasValue)
-            {
-                var leader = base.GetEntityByIdAsync(entity.LeaderId.Value).Result;
-                if (leader != null)
-                {
-                    user.LeaderName = leader.UserName;
-                }
-            }
-            return user;
         }
     }
 }

@@ -16,16 +16,12 @@
                     var role = roles[i];
                     role.isAssigned = $.inArray(role.name, user.roles) >= 0;
                 }
-                getUsers();
-            }
-
-            function getUsers() {
-                userService.getAll({}).then(function (result) {
-                    vm.users = result.data.items;
-                });
             }
 
             var init = function () {
+                userService.getAll({}).then(function (result) {
+                    vm.users = result.data.items;
+                });
                 userService.getRoles()
                     .then(function (result) {
                         vm.roles = result.data.items;
@@ -33,6 +29,10 @@
                         userService.get({ id: id })
                             .then(function (result) {
                                 vm.user = result.data;
+                                var leader = vm.user.leaderName == null || vm.user.leaderName == undefined ? null : vm.users.find(u => u.userName == vm.user.leaderName);
+                                if (leader) {
+                                    $scope.vm.user.leaderId = leader.id;
+                                }
                                 setAssignedRoles(vm.user, vm.roles);
                             });
                     });
