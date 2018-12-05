@@ -22,17 +22,17 @@ namespace FirstAbpProject.Clients
     {
         private readonly IRepository<Client, int> _clientRepository;
         private readonly UserManager _userManager;
-        private readonly ILocalizationManager _localizationManager;
+        private readonly ILanguageManager _languageManager;
 
         public ClientAppService(IRepository<Client, int> clientRepository, 
-            UserManager userManager, 
-            ILocalizationManager localizationManager)
+            UserManager userManager,
+            ILanguageManager languageManager)
             : base(clientRepository)
         {
             LocalizationSourceName = FirstAbpProjectConsts.LocalizationSourceName;
             _userManager = userManager;
             _clientRepository = clientRepository;
-            _localizationManager = localizationManager;
+            _languageManager = languageManager;
         }
 
         [AbpAuthorize(PermissionNames.Pages_Clients)]
@@ -82,7 +82,7 @@ namespace FirstAbpProject.Clients
         public override async Task<PagedResultDto<ClientDto>> GetAll(FirstAbpProjectPagedResultRequestDto input)
         {
             CheckGetAllPermission();
-            var language = _localizationManager.GetString(FirstAbpProjectConsts.LocalizationSourceName, "Language");
+            var language = _languageManager.CurrentLanguage.Name;
             var query = _clientRepository.GetAll().Where(q => !q.IsDeleted);
             
             if (!string.IsNullOrEmpty(input.Filter))
@@ -110,7 +110,7 @@ namespace FirstAbpProject.Clients
         public List<ClientDto> GetAllClients()
         {
             CheckGetAllPermission();
-            var language = _localizationManager.GetString(FirstAbpProjectConsts.LocalizationSourceName, "Language");
+            var language = _languageManager.CurrentLanguage.Name;
             var query = _clientRepository.GetAll().Where(q => !q.IsDeleted);
 
             var clients = query.OrderBy(q => q.CreationTime).ToList();

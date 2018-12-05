@@ -9,6 +9,7 @@ using Abp.Authorization;
 using Abp.Authorization.Users;
 using Abp.Domain.Repositories;
 using Abp.IdentityFramework;
+using Abp.Localization;
 using FirstAbpProject.Authorization;
 using FirstAbpProject.Authorization.Roles;
 using FirstAbpProject.Authorization.Users;
@@ -24,22 +25,26 @@ namespace FirstAbpProject.Users
         private readonly UserManager _userManager;
         private readonly RoleManager _roleManager;
         private readonly IRepository<Role> _roleRepository;
+        private readonly ILanguageManager _languageManager;
 
         public UserAppService(
             IRepository<User, long> repository, 
             UserManager userManager, 
             IRepository<Role> roleRepository, 
-            RoleManager roleManager)
+            RoleManager roleManager,
+            ILanguageManager languageManager)
             : base(repository)
         {
             _userManager = userManager;
             _roleRepository = roleRepository;
             _roleManager = roleManager;
+            _languageManager = languageManager;
         }
 
         public override async Task<PagedResultDto<UserDto>> GetAll(PagedResultRequestDto input)
         {
             CheckGetAllPermission();
+            var language = _languageManager.CurrentLanguage.Name;
             var query = CreateFilteredQuery(input);
 
             var totalCount = await AsyncQueryableExecuter.CountAsync(query);
@@ -56,6 +61,7 @@ namespace FirstAbpProject.Users
                 {
                     t.LeaderName = entities.FirstOrDefault(u => u.Id == entity.LeaderId.Value).UserName; 
                 }
+                t.ClientName = entity.Client != null ? (language == "zh-CN" ? entity.Client.Name : entity.Client.NameEn) : string.Empty;
                 return t;
             }).ToList();
 
@@ -67,12 +73,17 @@ namespace FirstAbpProject.Users
 
         public override async Task<UserDto> Get(EntityDto<long> input)
         {
+            var language = _languageManager.CurrentLanguage.Name;
             var user = await base.Get(input);
             var entity = await base.GetEntityByIdAsync(user.Id);
             if (entity.LeaderId.HasValue)
             {
                 var leader = await base.GetEntityByIdAsync(entity.LeaderId.Value);
                 user.LeaderName = leader.UserName;
+            }
+            if (entity.Client != null)
+            {
+                user.ClientName = entity.Client != null ? (language == "zh-CN" ? entity.Client.Name : entity.Client.NameEn) : null;
             }
             var userRoles = await _userManager.GetRolesAsync(user.Id);
             user.Roles = userRoles.Select(ur => ur).ToArray();
@@ -82,7 +93,7 @@ namespace FirstAbpProject.Users
         public override async Task<UserDto> Create(CreateUserDto input)
         {
             CheckCreatePermission();
-
+            var language = _languageManager.CurrentLanguage.Name;
             var user = ObjectMapper.Map<User>(input);
 
             user.TenantId = AbpSession.TenantId;
@@ -101,10 +112,16 @@ namespace FirstAbpProject.Users
 
             await CurrentUnitOfWork.SaveChangesAsync();
 
-            var userDto = MapToEntityDto(user);
-            if (user.LeaderId.HasValue)
+            var entity = await base.GetEntityByIdAsync(user.Id);
+            var userDto = MapToEntityDto(entity);
+            if (entity.LeaderId.HasValue)
             {
-                userDto.LeaderName = base.GetEntityByIdAsync(user.LeaderId.Value).Result.UserName;
+                var leader = await base.GetEntityByIdAsync(entity.LeaderId.Value);
+                userDto.LeaderName = leader.UserName;
+            }
+            if (entity.Client != null)
+            {
+                userDto.ClientName = entity.Client != null ? (language == "zh-CN" ? entity.Client.Name : entity.Client.NameEn) : null;
             }
             return userDto;
         }
@@ -152,7 +169,7 @@ namespace FirstAbpProject.Users
 
         protected override IQueryable<User> CreateFilteredQuery(PagedResultRequestDto input)
         {
-            return Repository.GetAllIncluding(x => x.Roles);
+            return Repository.GetAllIncluding(x => x.Roles, x => x.Client);
         }
 
         protected override async Task<User> GetEntityByIdAsync(long id)

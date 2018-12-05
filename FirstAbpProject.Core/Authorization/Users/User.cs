@@ -1,6 +1,8 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations.Schema;
 using Abp.Authorization.Users;
 using Abp.Extensions;
+using FirstAbpProject.Clients;
 using Microsoft.AspNet.Identity;
 
 namespace FirstAbpProject.Authorization.Users
@@ -8,6 +10,10 @@ namespace FirstAbpProject.Authorization.Users
     public class User : AbpUser<User>
     {
         public const string DefaultPassword = "123qwe";
+
+        [ForeignKey("ClientId")]
+        public virtual Client Client { get; set; }
+        public virtual int? ClientId { get; set; }
 
         public virtual long? LeaderId { get; set; }
 

@@ -240,6 +240,10 @@
     <Compile Include="Migrations\201812031614462_AddLeaderIdToUser.Designer.cs">
       <DependentUpon>201812031614462_AddLeaderIdToUser.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812051502490_AssignClientToUser.cs" />
+    <Compile Include="Migrations\201812051502490_AssignClientToUser.Designer.cs">
+      <DependentUpon>201812051502490_AssignClientToUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
@@ -276,6 +280,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812031614462_AddLeaderIdToUser.resx">
       <DependentUpon>201812031614462_AddLeaderIdToUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812051502490_AssignClientToUser.resx">
+      <DependentUpon>201812051502490_AssignClientToUser.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

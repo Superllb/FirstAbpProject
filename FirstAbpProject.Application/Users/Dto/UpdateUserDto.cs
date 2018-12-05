@@ -21,6 +21,8 @@ namespace FirstAbpProject.Users.Dto
         [StringLength(AbpUserBase.MaxSurnameLength)]
         public string Surname { get; set; }
 
+        public int? ClientId { get; set; }
+
         public long? LeaderId { get; set; }
 
         [Required]

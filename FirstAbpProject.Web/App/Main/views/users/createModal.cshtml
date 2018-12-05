@@ -10,6 +10,19 @@
     <div class="modal-body">
         <uib-tabset class="tab-container tabbable-line">
             <uib-tab heading="@L("UserDetails")">
+                <div class="row clearfix">
+                    <div class="col-sm-12">
+                        <div class="form-group form-float">
+                            <div class="form-line focused">
+                                <select id="clientId" ng-model='vm.user.clientId'
+                                        ng-options="client.id as (vm.currentLanguage == 'zh-CN' ? client.name : client.nameEn) for client in vm.clients" class="form-control">
+                                    <option value="">---@L("PleaseSelect")---</option>
+                                </select>
+                                <label for="clientId" class="form-label">@L("Client")</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <div class="row clearfix" style="margin-top:10px;">
                     <div class="col-sm-12">
                         <div class="form-group form-float">

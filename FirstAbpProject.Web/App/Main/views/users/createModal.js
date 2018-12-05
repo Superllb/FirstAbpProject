@@ -1,19 +1,27 @@
 ﻿(function () {
     angular.module('app').controller('app.views.users.createModal', [
-        '$scope', '$uibModalInstance', 'abp.services.app.user',
-        function ($scope, $uibModalInstance, userService) {
+        '$scope', '$uibModalInstance', 'abp.services.app.user', 'abp.services.app.client',
+        function ($scope, $uibModalInstance, userService, clientService) {
             var vm = this;
 
             vm.user = {
                 isActive: true
             };
 
+            vm.currentLanguage = abp.localization.currentLanguage.name;
             vm.users = [];
+            vm.clients = [];
             vm.roles = [];
 
             function getUsers() {
                 userService.getAll({}).then(function (result) {
                     vm.users = result.data.items;
+                });
+            }
+
+            function getClients() {
+                clientService.getAll({}).then(function (result) {
+                    vm.clients = result.data.items;
                 });
             }
 
@@ -50,6 +58,7 @@
 
             getUsers();
             getRoles();
+            getClients();
         }
     ]);
 })();
