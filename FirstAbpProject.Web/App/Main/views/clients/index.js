@@ -34,8 +34,8 @@
                     vm.mainPageParams = $stateParams.mainPageParams;
                     vm.filter = $stateParams.mainPageParams.filter;
 
-                    if (vm.mainPageParams.skipCount > 0 && vm.mianPageParams.maxResultCount > 0) {
-                        pageNumber = (vm.mianPageParams.skipCount / vm.mianPageParams.maxResultCount) + 1;
+                    if (vm.mainPageParams.skipCount > 0 && vm.mainPageParams.maxResultCount > 0) {
+                        pageNumber = (vm.mainPageParams.skipCount / vm.mainPageParams.maxResultCount) + 1;
                     }
                 } else {
                     vm.mainPageParams = { skipCount: (pageNumber - 1) * perPageCount, maxResultCount: perPageCount, filter: vm.filter };
