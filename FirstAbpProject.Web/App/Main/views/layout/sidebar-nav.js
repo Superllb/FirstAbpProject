@@ -8,6 +8,8 @@
 
             vm.menuItems = [
                 createMenuItem(App.localize("HomePage"), "", "home", "home"),
+                createMenuItem(App.localize("Coolers"), "Pages.Coolers", "people", "coolers"),
+                createMenuItem(App.localize("Sloths"), "Pages.Sloths", "people", "sloths"),
                 createMenuItem(App.localize("Clients"), "Pages.Clients", "people", "clients"),
                 createMenuItem(App.localize("Tenants"), "Pages.Tenants", "business", "tenants"),
                 createMenuItem(App.localize("Users"), "Pages.Users", "supervisor_account", "", [

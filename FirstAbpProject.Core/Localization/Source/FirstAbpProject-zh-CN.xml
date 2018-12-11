@@ -97,6 +97,7 @@
     <text name="Refresh">刷新</text>
 
     <text name="Coolers">冰箱</text>
+    <text name="Sloths">设备</text>
     <text name="PleaseSelect" value="请选择" />
     
   </texts>
