@@ -71,14 +71,14 @@ namespace FirstAbpProject.Coolers
         public Status Status { get; set; }
 
         /// <summary>
+        /// Run local model(false) or cloud model(true), default true
+        /// </summary>
+        public virtual bool IsOnline { get; set; }
+
+        /// <summary>
         /// Whether to execute QA process
         /// </summary>
         public virtual bool IsQa { get; set; }
-
-        /// <summary>
-        /// Fetch QA result (true) or model run result (false), but it makes sense if IsQa is true
-        /// </summary>
-        public virtual bool IsQaResult { get; set; }
 
         public virtual bool IsDeleted { get; set; }
 
