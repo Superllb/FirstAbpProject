@@ -82,6 +82,16 @@ namespace FirstAbpProject.Coolers
 
         public virtual bool IsDeleted { get; set; }
 
+        /// <summary>
+        /// Corresponding to ClientId that configured by bizman, used to create task
+        /// </summary>
+        public virtual int? CustomerId { get; set; }
+
+        /// <summary>
+        /// Corresponding to ProjectId that configured by bizman, used to create task
+        /// </summary>
+        public virtual Guid? ProjectId { get; set; }
+
         public virtual DateTime CreationTime { get; set; }
 
         public virtual long CreatorUserId { get; set; }
