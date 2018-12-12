@@ -18,7 +18,7 @@ using FirstAbpProject.Clients.Dto;
 
 namespace FirstAbpProject.Clients
 {
-    public class ClientAppService : AsyncCrudAppService<Client, ClientDto, int, FirstAbpProjectPagedResultRequestDto, CreateClientInput, UpdateClientInput>, IClientAppService
+    public class ClientAppService : AsyncCrudAppService<Client, ClientDto, int, FirstAbpProjectPagedResultRequestDto, CreateClientDto, UpdateClientDto>, IClientAppService
     {
         private readonly IRepository<Client, int> _clientRepository;
         private readonly UserManager _userManager;
@@ -36,7 +36,7 @@ namespace FirstAbpProject.Clients
         }
 
         [AbpAuthorize(PermissionNames.Pages_Clients)]
-        public override async Task<ClientDto> Create(CreateClientInput input)
+        public override async Task<ClientDto> Create(CreateClientDto input)
         {
             #region Check client code naming rule
             if (input.Code.Split('.').Length != 2)
@@ -127,7 +127,7 @@ namespace FirstAbpProject.Clients
         }
 
         [AbpAuthorize(PermissionNames.Pages_Clients)]
-        public override async Task<ClientDto> Update(UpdateClientInput input)
+        public override async Task<ClientDto> Update(UpdateClientDto input)
         {
             CheckUpdatePermission();
 
@@ -146,13 +146,13 @@ namespace FirstAbpProject.Clients
             return base.ApplySorting(query, input);
         }
         
-        protected override Client MapToEntity(CreateClientInput createInput)
+        protected override Client MapToEntity(CreateClientDto createInput)
         {
             var client = ObjectMapper.Map<Client>(createInput);
             return client;
         }
 
-        protected override void MapToEntity(UpdateClientInput input, Client client)
+        protected override void MapToEntity(UpdateClientDto input, Client client)
         {
             ObjectMapper.Map(input, client);
         }

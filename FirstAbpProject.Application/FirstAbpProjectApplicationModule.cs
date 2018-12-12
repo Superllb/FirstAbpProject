@@ -8,6 +8,8 @@ using Abp.Modules;
 using Abp.Timing;
 using FirstAbpProject.Authorization.Roles;
 using FirstAbpProject.Authorization.Users;
+using FirstAbpProject.Coolers;
+using FirstAbpProject.Coolers.Dto;
 using FirstAbpProject.Roles.Dto;
 using FirstAbpProject.Users.Dto;
 
@@ -42,6 +44,14 @@ namespace FirstAbpProject
 
                 cfg.CreateMap<CreateUserDto, User>();
                 cfg.CreateMap<CreateUserDto, User>().ForMember(x => x.Roles, opt => opt.Ignore());
+
+                cfg.CreateMap<CreateCoolerDto, Cooler>()
+                    .ForMember(x => x.Gpsx, opt => opt.MapFrom(src => (int)src.Longitude * 1000000))
+                    .ForMember(x => x.Gpsy, opt => opt.MapFrom(src => (int)src.Latitude * 1000000));
+
+                cfg.CreateMap<Cooler, CoolerDto>()
+                    .ForMember(x => x.Longitude, opt => opt.MapFrom(src => (float)src.Gpsx / 1000000))
+                    .ForMember(x => x.Latitude, opt => opt.MapFrom(src => (float)src.Gpsy / 1000000));
             });
         }
     }

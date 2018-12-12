@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace FirstAbpProject.Clients
 {
-    public interface IClientAppService: IAsyncCrudAppService<ClientDto, int, FirstAbpProjectPagedResultRequestDto, CreateClientInput, UpdateClientInput>
+    public interface IClientAppService: IAsyncCrudAppService<ClientDto, int, FirstAbpProjectPagedResultRequestDto, CreateClientDto, UpdateClientDto>
     {
         Task<ClientDto> GetClientByIdAsync(int id);
         List<ClientDto> GetAllClients();
