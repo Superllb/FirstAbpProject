@@ -11,12 +11,8 @@ namespace FirstAbpProject.Coolers.Dto
     [AutoMapFrom(typeof(Cooler))]
     public class CoolerDto : EntityDto<int>
     {
-        public virtual int ClientId { get; set; }
-
         public virtual string ClientName { get; set; }
-
-        public virtual int UserId { get; set; }
-
+        
         public virtual string UserName { get; set; }
 
         public virtual int SlothId { get; set; }

@@ -461,6 +461,7 @@
     <Content Include="App\Main\views\clients\createModal.js" />
     <Content Include="App\Main\views\clients\editModal.js" />
     <Content Include="App\Main\views\clients\index.js" />
+    <Content Include="App\Main\views\coolers\index.js" />
     <Content Include="App\Main\views\directives\autoFocus.js" />
     <Content Include="App\Main\views\directives\enterKey.js" />
     <Content Include="App\Main\views\layout\layout.js" />
@@ -2710,6 +2711,7 @@
     <Content Include="App\Main\views\clients\index.cshtml" />
     <Content Include="App\Main\views\clients\createModal.cshtml" />
     <Content Include="App\Main\views\clients\editModal.cshtml" />
+    <Content Include="App\Main\views\coolers\index.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
@@ -3798,6 +3800,7 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App\Main\views\sloths\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

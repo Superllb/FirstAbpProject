@@ -60,6 +60,26 @@
                 $urlRouterProvider.otherwise('/tenants');
             }
 
+            if (abp.auth.hasPermission('Pages.Coolers')) {
+                $stateProvider
+                    .state('coolers', {
+                        url: '/coolers',
+                        templateUrl: '/App/Main/views/coolers/index.cshtml',
+                        menu: 'Coolers' //Matches to name of 'Tenants' menu in FirstAbpProjectNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/coolers');
+            }
+
+            if (abp.auth.hasPermission('Pages.Sloths')) {
+                $stateProvider
+                    .state('sloths', {
+                        url: '/sloths',
+                        templateUrl: '/App/Main/views/sloths/index.cshtml',
+                        menu: 'Sloths' //Matches to name of 'Tenants' menu in FirstAbpProjectNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/sloths');
+            }
+
             $stateProvider
                 .state('home', {
                     url: '/',

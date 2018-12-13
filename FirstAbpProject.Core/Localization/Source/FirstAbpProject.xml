@@ -90,6 +90,7 @@
     <text name="Client">Client</text>
     <text name="CreateNewClient">Create New Client</text>
     <text name="EditClient">Edit Client</text>
+    <text name="DeleteClient">Delete Client</text>
     <text name="ClientId">Client Id</text>
     <text name="Id">Id</text>
     <text name="Code">Code</text>
@@ -108,7 +109,21 @@
     <text name="Refresh">Refresh</text>
 
     <text name="Coolers">Coolers</text>
+    <text name="Cooler">Cooler</text>
+    <text name="CreateNewCooler">Create New Cooler</text>
+    <text name="EditCooler">Edit Cooler</text>
+    <text name="DeleteCooler">Delete Cooler</text>
+    <text name="CoolerType">Cooler Type</text>
+    <text name="CoolerCode">Cooler Code</text>
+    <text name="StoreCode">Store Code</text>
+    <text name="StoreName">Store Name</text>
+    <text name="Address">Address</text>
+    <text name="IsOnline">IsOnline</text>
+    <text name="IsQa">IsQa</text>
+    
     <text name="Sloths">Sloths</text>
+    <text name="Sloth">Sloth</text>
+    <text name="SlothId">Sloth Id</text>
     <text name="PleaseSelect" value="Please Select" />
     
   </texts>
