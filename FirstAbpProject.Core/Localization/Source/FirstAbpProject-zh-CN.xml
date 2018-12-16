@@ -61,6 +61,7 @@
     <text name="Yes" value="是" />
     <text name="No" value="否" />
     <text name="Optional" value="可选的" />
+    <text name="AssignedUser" value="所属用户" />
 
     <text name="Actions">操作</text>
     <text name="Roles">角色</text>
@@ -88,6 +89,7 @@
     <text name="InvalidClient">无效的客户</text>
     <text name="InvalidCodeAndExist">Code已经存在，请输入其他Code</text>
     <text name="InvalidClientCode">无效的客户编码，请以.dev/.test/.cn/.na/.pre结尾</text>
+    <text name="AssignedClient" value="所属客户" />
 
     <text name="First">首页</text>
     <text name="Previous">前一页</text>
@@ -109,6 +111,9 @@
     <text name="Address">地址</text>
     <text name="IsOnline">是否线上</text>
     <text name="IsQa">是否QA</text>
+    <text name="Province">省</text>
+    <text name="City">市</text>
+    <text name="Area">区</text>
     
     <text name="Sloths">设备</text>
     <text name="Sloth">设备</text>

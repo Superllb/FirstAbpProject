@@ -14,6 +14,7 @@ using AutoMapper;
 using FirstAbpProject.Authorization;
 using FirstAbpProject.Authorization.Roles;
 using FirstAbpProject.Authorization.Users;
+using FirstAbpProject.Clients;
 using FirstAbpProject.Roles.Dto;
 using FirstAbpProject.Users.Dto;
 using Microsoft.AspNet.Identity;
@@ -25,12 +26,14 @@ namespace FirstAbpProject.Users
     {
         private readonly UserManager _userManager;
         private readonly IRepository<User, long> _userRepository;
+        private readonly IRepository<Client, int> _clientRepository;
         private readonly RoleManager _roleManager;
         private readonly IRepository<Role> _roleRepository;
         private readonly ILanguageManager _languageManager;
 
         public UserAppService(
-            IRepository<User, long> repository, 
+            IRepository<User, long> repository,
+            IRepository<Client, int> clientRepository,
             UserManager userManager, 
             IRepository<Role> roleRepository, 
             RoleManager roleManager,
@@ -38,6 +41,8 @@ namespace FirstAbpProject.Users
             : base(repository)
         {
             _userManager = userManager;
+            _userRepository = repository;
+            _clientRepository = clientRepository;
             _roleRepository = roleRepository;
             _roleManager = roleManager;
             _languageManager = languageManager;
@@ -190,15 +195,20 @@ namespace FirstAbpProject.Users
             identityResult.CheckErrors(LocalizationManager);
         }
 
+        [AbpAuthorize(PermissionNames.Pages_Clients)]
         public ListResultDto<UserDto> GetUsersByClientId(int clientId)
         {
             CheckGetAllPermission();
             var language = _languageManager.CurrentLanguage.Name;
+            var client = _clientRepository.Get(clientId);
             var users = _userRepository.GetAll()
                 .Where(t => !t.IsDeleted && t.ClientId == clientId)
                 .OrderBy(t => t.Id).ToList();
+            
+            List<UserDto> useDtos = ObjectMapper.Map<List<UserDto>>(users);
+            useDtos = useDtos.Select(t => { t.ClientName = language == "zh-CN" ? client.Name : client.NameEn; return t; }).ToList();
 
-            return new ListResultDto<UserDto>(ObjectMapper.Map<List<UserDto>>(users));
+            return new ListResultDto<UserDto>(useDtos);
         }
     }
 }

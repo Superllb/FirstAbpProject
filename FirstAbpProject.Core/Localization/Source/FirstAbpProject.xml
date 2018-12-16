@@ -55,6 +55,7 @@
 
     <text name="DatabaseConnectionString" value="Database connection string" />
     <text name="Users" value="Users" />
+    <text name="User" value="User" />
     <text name="IsActive" value="Is active" />
     <text name="FullName" value="Full name" />
     <text name="CreateNewUser" value="Create new user" />
@@ -62,6 +63,7 @@
     <text name="No" value="No" />
     <text name="Optional" value="Optional" />
     <text name="LeaveEmptyToSwitchToHost">Leave empty to switch to the host</text>
+    <text name="AssignedUser" value="Assigned User" />
 
     <text name="CurrentTenant">Current tenant</text>
     <text name="NotSelected">Not selected</text>
@@ -99,6 +101,7 @@
     <text name="InvalidClient">nvalid Client</text>
     <text name="InvalidCodeAndExist">Code already exists, please enter another Code</text>
     <text name="InvalidClientCode">Invalid client code. Client code must end with .dev/.test/.cn/.na/.pre</text>
+    <text name="AssignedClient" value="Assigned Client" />
   
     <text name="First">First</text>
     <text name="Previous">Previous</text>
@@ -120,6 +123,9 @@
     <text name="Address">Address</text>
     <text name="IsOnline">IsOnline</text>
     <text name="IsQa">IsQa</text>
+    <text name="Province">Province</text>
+    <text name="City">City</text>
+    <text name="Area">Area</text>
     
     <text name="Sloths">Sloths</text>
     <text name="Sloth">Sloth</text>

@@ -7,6 +7,9 @@
             vm.currentLanguage = abp.localization.currentLanguage.name;
             vm.users = [];
             vm.clients = [];
+            vm.provinces = cityData;
+            vm.cities = [];
+            vm.districts = [];
 
             function getClients () {
                 clientService.getAllClients({}).then(function (result) {
@@ -15,10 +18,34 @@
             }
 
             function getUsersByClientId () {
-                userService.getUsersByClientId(vm.coler.clientId).then(function (result) {
+                userService.getUsersByClientId(vm.cooler.clientId).then(function (result) {
                     vm.users = result.data.items;
                 });
             }
+
+            vm.changeClient = function () {
+                if (vm.cooler.clientId) {
+                    getUsersByClientId(vm.cooler.clientId);
+                } else {
+                    vm.users = [];
+                }
+            };
+
+            vm.changeProvince = function () {
+                if (vm.cooler.province) {
+                    vm.cities = vm.provinces.find(c => c.name === vm.cooler.province).city;
+                } else {
+                    vm.cities = [];
+                }
+            };
+
+            vm.changeCity = function () {
+                if (vm.cooler.city) {
+                    vm.districts = vm.cities.find(c => c.name === vm.cooler.city).area;
+                } else {
+                    vm.districts = [];
+                }
+            };
 
             vm.save = function () {
                 coolerService.create(vm.cooler)
