@@ -9,5 +9,6 @@ namespace FirstAbpProject.Users
     public interface IUserAppService : IAsyncCrudAppService<UserDto, long, PagedResultRequestDto, CreateUserDto, UpdateUserDto>
     {
         Task<ListResultDto<RoleDto>> GetRoles();
+        ListResultDto<UserDto> GetUsersByClientId(int clientId);
     }
 }

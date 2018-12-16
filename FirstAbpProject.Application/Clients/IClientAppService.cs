@@ -1,4 +1,5 @@
 ﻿using Abp.Application.Services;
+using Abp.Application.Services.Dto;
 using FirstAbpProject.Clients.Dto;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,6 @@ namespace FirstAbpProject.Clients
     public interface IClientAppService: IAsyncCrudAppService<ClientDto, int, FirstAbpProjectPagedResultRequestDto, CreateClientDto, UpdateClientDto>
     {
         Task<ClientDto> GetClientByIdAsync(int id);
-        List<ClientDto> GetAllClients();
+        ListResultDto<ClientDto> GetAllClients();
     }
 }

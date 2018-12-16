@@ -461,6 +461,8 @@
     <Content Include="App\Main\views\clients\createModal.js" />
     <Content Include="App\Main\views\clients\editModal.js" />
     <Content Include="App\Main\views\clients\index.js" />
+    <None Include="App\Main\views\coolers\createModal.cshtml" />
+    <Content Include="App\Main\views\coolers\createModal.js" />
     <Content Include="App\Main\views\coolers\index.js" />
     <Content Include="App\Main\views\directives\autoFocus.js" />
     <Content Include="App\Main\views\directives\enterKey.js" />

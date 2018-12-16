@@ -23,7 +23,5 @@ namespace FirstAbpProject.Clients.Dto
         public string NameEn { get; set; }
 
         public bool IsActive { get; set; }
-
-        public DateTime CreationTime { get; set; }
     }
 }

@@ -107,7 +107,7 @@ namespace FirstAbpProject.Clients
             );
         }
 
-        public List<ClientDto> GetAllClients()
+        public ListResultDto<ClientDto> GetAllClients()
         {
             CheckGetAllPermission();
             var language = _languageManager.CurrentLanguage.Name;
@@ -115,7 +115,7 @@ namespace FirstAbpProject.Clients
 
             var clients = query.OrderBy(q => q.CreationTime).ToList();
 
-            return Mapper.Map<List<ClientDto>>(clients);
+            return new ListResultDto<ClientDto>(ObjectMapper.Map<List<ClientDto>>(clients));
         }
 
         public async Task<ClientDto> GetClientByIdAsync(int id)

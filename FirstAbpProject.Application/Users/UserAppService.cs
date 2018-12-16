@@ -10,6 +10,7 @@ using Abp.Authorization.Users;
 using Abp.Domain.Repositories;
 using Abp.IdentityFramework;
 using Abp.Localization;
+using AutoMapper;
 using FirstAbpProject.Authorization;
 using FirstAbpProject.Authorization.Roles;
 using FirstAbpProject.Authorization.Users;
@@ -23,6 +24,7 @@ namespace FirstAbpProject.Users
     public class UserAppService : AsyncCrudAppService<User, UserDto, long, PagedResultRequestDto, CreateUserDto, UpdateUserDto>, IUserAppService
     {
         private readonly UserManager _userManager;
+        private readonly IRepository<User, long> _userRepository;
         private readonly RoleManager _roleManager;
         private readonly IRepository<Role> _roleRepository;
         private readonly ILanguageManager _languageManager;
@@ -186,6 +188,17 @@ namespace FirstAbpProject.Users
         protected virtual void CheckErrors(IdentityResult identityResult)
         {
             identityResult.CheckErrors(LocalizationManager);
+        }
+
+        public ListResultDto<UserDto> GetUsersByClientId(int clientId)
+        {
+            CheckGetAllPermission();
+            var language = _languageManager.CurrentLanguage.Name;
+            var users = _userRepository.GetAll()
+                .Where(t => !t.IsDeleted && t.ClientId == clientId)
+                .OrderBy(t => t.Id).ToList();
+
+            return new ListResultDto<UserDto>(ObjectMapper.Map<List<UserDto>>(users));
         }
     }
 }
