@@ -252,6 +252,10 @@
     <Compile Include="Migrations\201812121459380_AddCustomerIdAndProjectIdToCooler.Designer.cs">
       <DependentUpon>201812121459380_AddCustomerIdAndProjectIdToCooler.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812171604387_AddStoreEntity.cs" />
+    <Compile Include="Migrations\201812171604387_AddStoreEntity.Designer.cs">
+      <DependentUpon>201812171604387_AddStoreEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
@@ -297,6 +301,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812121459380_AddCustomerIdAndProjectIdToCooler.resx">
       <DependentUpon>201812121459380_AddCustomerIdAndProjectIdToCooler.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812171604387_AddStoreEntity.resx">
+      <DependentUpon>201812171604387_AddStoreEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

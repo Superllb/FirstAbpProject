@@ -8,6 +8,7 @@ using FirstAbpProject.Clients;
 using FirstAbpProject.Coolers;
 using FirstAbpProject.MultiTenancy;
 using FirstAbpProject.Sloths;
+using FirstAbpProject.Stores;
 
 namespace FirstAbpProject.EntityFramework
 {
@@ -17,6 +18,7 @@ namespace FirstAbpProject.EntityFramework
 
         //TODO: Define an IDbSet for your Entities...
         public virtual IDbSet<Client> Clients { get; set; }
+        public virtual IDbSet<Store> Stores { get; set; }
         public virtual IDbSet<Cooler> Coolers { get; set; }
         public virtual IDbSet<Sloth> Sloths { get; set; }
 

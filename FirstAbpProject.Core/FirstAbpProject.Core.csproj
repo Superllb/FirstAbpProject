@@ -226,6 +226,7 @@
     <Compile Include="Authorization\Users\UserStore.cs" />
     <Compile Include="Sloths\Sloth.cs" />
     <Compile Include="Status.cs" />
+    <Compile Include="Stores\Store.cs" />
     <Compile Include="Validation\ValidationHelper.cs" />
   </ItemGroup>
   <ItemGroup>
