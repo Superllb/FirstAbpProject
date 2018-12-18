@@ -42,9 +42,5 @@ namespace FirstAbpProject.Coolers.Dto
         public virtual bool IsOnline { get; set; }
 
         public virtual bool IsQa { get; set; }
-
-        public virtual int? CustomerId { get; set; }
-
-        public virtual Guid? ProjectId { get; set; }
     }
 }
