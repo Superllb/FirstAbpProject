@@ -8,6 +8,7 @@ namespace FirstAbpProject.Authorization
     {
         public override void SetPermissions(IPermissionDefinitionContext context)
         {
+            context.CreatePermission(PermissionNames.Pages_Stores, L("Stores"));
             context.CreatePermission(PermissionNames.Pages_Clients, L("Clients"));
             context.CreatePermission(PermissionNames.Pages_Coolers, L("Coolers"));
             context.CreatePermission(PermissionNames.Pages_Sloths, L("Sloths"));

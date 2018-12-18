@@ -60,6 +60,16 @@
                 $urlRouterProvider.otherwise('/tenants');
             }
 
+            if (abp.auth.hasPermission('Pages.Stores')) {
+                $stateProvider
+                    .state('stores', {
+                        url: '/stores',
+                        templateUrl: '/App/Main/views/stores/index.cshtml',
+                        menu: 'Stores' //Matches to name of 'Tenants' menu in FirstAbpProjectNavigationProvider
+                    });
+                $urlRouterProvider.otherwise('/stores');
+            }
+
             if (abp.auth.hasPermission('Pages.Coolers')) {
                 $stateProvider
                     .state('coolers', {

@@ -10,8 +10,10 @@
 
         public const string Pages_Clients = "Pages.Clients";
 
+        public const string Pages_Stores = "Pages.Stores";
+
         public const string Pages_Coolers = "Pages.Coolers";
 
-        public const string Pages_Sloths = "Pages.Sloths";
+        public const string Pages_Sloths = "Pages.Sloths"; 
     }
 }

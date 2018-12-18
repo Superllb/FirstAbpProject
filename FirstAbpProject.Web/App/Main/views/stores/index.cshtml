@@ -1,0 +1,79 @@
+﻿<div class="row clearfix" ng-controller="app.views.stores.index as vm">
+    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        <div class="card main-content">
+            <div class="header">
+                <h2>
+                    @L("Stores")
+                    <i class="fa fa-spin fa-spinner" ng-if="vm.isTableLoading"></i>
+                </h2>
+                <ul class="header-dropdown m-r--5">
+                    <li class="dropdown">
+                        <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                            <i class="material-icons">more_vert</i>
+                        </a>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="javascript:void(0);" class="waves-effect waves-block()" ng-click="vm.refresh();"><i class="material-icons">refresh</i> @L("Refresh")</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div>
+                <div style="width: 400px;float: left;margin-left: 20px;"><input id="filter" type="text" name="Filter" ng-model="vm.filter" ng-keypress="vm.refreshByEnter($event)" class="form-control"></div>
+                <div><button class="btn btn-default" type="button" ng-click="vm.refresh();">@L("Search")</button></div>
+            </div>
+            <div class="body table-responsive" style="clear:both; position:relative;">
+                <!-- ******************************************************** -->
+                <table class="table table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>@L("Id")</th>
+                            <th>@L("AssignedClient")</th>
+                            <th>@L("AssignedUser")</th>
+                            <th>@L("Province")</th>
+                            <th>@L("City")</th>
+                            <th>@L("Area")</th>
+                            <th>@L("StoreCode")</th>
+                            <th>@L("StoreName")</th>
+                            <th>@L("Address")</th>
+                            <th>@L("Longitude")</th>
+                            <th>@L("Latitude")</th>
+                            <th>@L("Actions")</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="store in vm.stores">
+                            <td>{{store.id}}</td>
+                            <td>{{store.clientName}}</td>
+                            <td>{{store.userName}}</td>
+                            <td>{{store.province}}</td>
+                            <td>{{store.city}}</td>
+                            <td>{{store.area}}</td>
+                            <td>{{store.storeCode}}</td>
+                            <td>{{store.storeName}}</td>
+                            <td>{{store.address}}</td>
+                            <td>{{store.longitude}}</td>
+                            <td>{{store.latitude}}</td>
+                            <td class="dropdown">
+                                <a href="javascript:void(0);" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                                    <i class="material-icons">menu</i>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.openStoreEditModal(store)"><i class="material-icons">create</i>@L("Edit")</a></li>
+                                    <li><a href="javascript:void(0);" class="waves-effect waves-block" ng-click="vm.delete(store)"><i class="material-icons">delete_sweep</i>@L("Delete")</a></li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <!-- ******************************************************** -->
+                <div id="paginator" class="pagination"></div>
+                <button type="button" data-toggle="modal" class="btn btn-primary btn-circle waves-effect waves-circle waves-float pull-right" ng-click="vm.openStoreCreationModal()">
+                    <i class="material-icons">add</i>
+                </button>
+                <div ng-if="vm.isTableLoading" style="position:absolute;left:0; top: 0;width:100%;height:100%;z-index:11;opacity:0.4;filter:alpha(opacity=40); background-color:#eee;text-align:center;">
+                    <i class="fa fa-spin fa-spinner" style="position:absolute;left:50%; top: 50%;margin-left:-30px;margin-top:-30px;font-size: 60px;"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -49,12 +49,12 @@ namespace FirstAbpProject.Stores
         /// <summary>
         /// Baidu Longitude, converted to int, for example: 121.459563
         /// </summary>
-        public virtual float Gpsx { get; set; }
+        public virtual float Longitude { get; set; }
 
         /// <summary>
         /// Baidu Latitude, converted to int, for example: 31.029288
         /// </summary>
-        public virtual float Gpsy { get; set; }
+        public virtual float Latitude { get; set; }
 
         public virtual DateTime CreationTime { get; set; }
 

@@ -99,6 +99,12 @@
     <text name="Search">搜索</text>
     <text name="Refresh">刷新</text>
 
+    <text name="Stores">商店</text>
+    <text name="Store">商店</text>
+    <text name="CreateNewStore">创建新商店</text>
+    <text name="EditStore">编辑商店</text>
+    <text name="DeleteStore">删除商店</text>
+    
     <text name="Coolers">冰箱</text>
     <text name="Cooler">冰箱</text>
     <text name="CreateNewCooler">创建新冰箱</text>
@@ -108,12 +114,15 @@
     <text name="CoolerCode">冰箱编号</text>
     <text name="StoreCode">商店编号</text>
     <text name="StoreName">商店名称</text>
-    <text name="Address">地址</text>
+    <text name="Address">商店地址</text>
     <text name="IsOnline">是否线上</text>
     <text name="IsQa">是否QA</text>
     <text name="Province">省</text>
     <text name="City">市</text>
     <text name="Area">区</text>
+    
+    <text name="Longitude">经度</text>
+    <text name="Latitude">纬度</text>
     
     <text name="Sloths">设备</text>
     <text name="Sloth">设备</text>
