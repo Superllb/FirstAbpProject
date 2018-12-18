@@ -256,6 +256,14 @@
     <Compile Include="Migrations\201812171604387_AddStoreEntity.Designer.cs">
       <DependentUpon>201812171604387_AddStoreEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812181525156_UpdateCoolerEntity.cs" />
+    <Compile Include="Migrations\201812181525156_UpdateCoolerEntity.Designer.cs">
+      <DependentUpon>201812181525156_UpdateCoolerEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812181527309_ChangeGpsxyFromIntToFloat.cs" />
+    <Compile Include="Migrations\201812181527309_ChangeGpsxyFromIntToFloat.Designer.cs">
+      <DependentUpon>201812181527309_ChangeGpsxyFromIntToFloat.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
@@ -304,6 +312,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812171604387_AddStoreEntity.resx">
       <DependentUpon>201812171604387_AddStoreEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812181525156_UpdateCoolerEntity.resx">
+      <DependentUpon>201812181525156_UpdateCoolerEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812181527309_ChangeGpsxyFromIntToFloat.resx">
+      <DependentUpon>201812181527309_ChangeGpsxyFromIntToFloat.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

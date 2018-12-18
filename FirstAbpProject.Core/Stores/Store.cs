@@ -47,14 +47,14 @@ namespace FirstAbpProject.Stores
         public virtual string StoreNameEn { get; set; }
 
         /// <summary>
-        /// Baidu Longitude, converted to int, for example: 121.45956256594185 × 1000000 = 121459563
+        /// Baidu Longitude, converted to int, for example: 121.459563
         /// </summary>
-        public virtual int Gpsx { get; set; }
+        public virtual float Gpsx { get; set; }
 
         /// <summary>
-        /// Baidu Latitude, converted to int, for example: 31.02928799588722 × 1000000 = 31029288
+        /// Baidu Latitude, converted to int, for example: 31.029288
         /// </summary>
-        public virtual int Gpsy { get; set; }
+        public virtual float Gpsy { get; set; }
 
         public virtual DateTime CreationTime { get; set; }
 
