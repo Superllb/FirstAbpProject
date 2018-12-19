@@ -116,6 +116,14 @@
     <text name="CreateNewStore">Create New Store</text>
     <text name="EditStore">Edit Store</text>
     <text name="DeleteStore">Delete Store</text>
+    <text name="StoreCode">Store Code</text>
+    <text name="StoreName">Store Name</text>
+    <text name="StoreEnglishName">Store English Name</text>
+    <text name="Address">Store Address</text>
+    <text name="StoreEnglishAddress">Store English Address</text>
+    <text name="Province">Province</text>
+    <text name="City">City</text>
+    <text name="Area">Area</text>
 
     <text name="Coolers">Coolers</text>
     <text name="Cooler">Cooler</text>
@@ -124,14 +132,8 @@
     <text name="DeleteCooler">Delete Cooler</text>
     <text name="CoolerType">Cooler Type</text>
     <text name="CoolerCode">Cooler Code</text>
-    <text name="StoreCode">Store Code</text>
-    <text name="StoreName">Store Name</text>
-    <text name="Address">Store Address</text>
     <text name="IsOnline">IsOnline</text>
     <text name="IsQa">IsQa</text>
-    <text name="Province">Province</text>
-    <text name="City">City</text>
-    <text name="Area">Area</text>
 
     <text name="Longitude">Longitude</text>
     <text name="Latitude">Latitude</text>

@@ -104,6 +104,14 @@
     <text name="CreateNewStore">创建新商店</text>
     <text name="EditStore">编辑商店</text>
     <text name="DeleteStore">删除商店</text>
+    <text name="StoreCode">商店编号</text>
+    <text name="StoreName">商店名称</text>
+    <text name="StoreEnglishName">英文名称</text>
+    <text name="Address">商店地址</text>
+    <text name="StoreEnglishAddress">英文地址</text>
+    <text name="Province">省</text>
+    <text name="City">市</text>
+    <text name="Area">区</text>
     
     <text name="Coolers">冰箱</text>
     <text name="Cooler">冰箱</text>
@@ -112,14 +120,8 @@
     <text name="DeleteCooler">删除冰箱</text>
     <text name="CoolerType">冰箱类型</text>
     <text name="CoolerCode">冰箱编号</text>
-    <text name="StoreCode">商店编号</text>
-    <text name="StoreName">商店名称</text>
-    <text name="Address">商店地址</text>
     <text name="IsOnline">是否线上</text>
     <text name="IsQa">是否QA</text>
-    <text name="Province">省</text>
-    <text name="City">市</text>
-    <text name="Area">区</text>
     
     <text name="Longitude">经度</text>
     <text name="Latitude">纬度</text>
