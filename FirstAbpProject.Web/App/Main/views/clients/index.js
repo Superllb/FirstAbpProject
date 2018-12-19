@@ -30,7 +30,7 @@
                 if (!pageNumber) {
                     pageNumber = 1;
                 }
-                if ($stateParams.mainPageParams !== null) {
+                if ($stateParams.mainPageParams) {
                     vm.mainPageParams = $stateParams.mainPageParams;
                     vm.filter = $stateParams.mainPageParams.filter;
 

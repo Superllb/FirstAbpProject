@@ -9,7 +9,7 @@
     </div>
     <div class="modal-body">
         <uib-tabset class="tab-container tabbable-line">
-            <uib-tab heading="User Details">
+            <uib-tab heading="@L("UserDetails")">
                 <div class="row clearfix">
                     <div class="col-sm-12">
                         <div class="form-group form-float">
@@ -18,7 +18,7 @@
                                         ng-options="client.id as (vm.currentLanguage == 'zh-CN' ? client.name : client.nameEn) for client in vm.clients" class="form-control">
                                     <option value="">---@L("PleaseSelect")---</option>
                                 </select>
-                                <label for="leader" class="form-label">@L("Leader")</label>
+                                <label for="clientId" class="form-label">@L("AssignedClient")</label>
                             </div>
                         </div>
                     </div>
@@ -85,7 +85,7 @@
                     </div>
                 </div>
             </uib-tab>
-            <uib-tab heading="User Roles">
+            <uib-tab heading="@L("UserRoles")">
                 <div class="row">
                     <div class="col-sm-12 ">
                         <div class="col-sm-6" ng-repeat="role in vm.roles">

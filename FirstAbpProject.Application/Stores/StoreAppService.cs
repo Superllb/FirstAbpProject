@@ -42,7 +42,7 @@ namespace FirstAbpProject.Stores
             storeInput.IsDeleted = false;
             var storeId = await _storeRepository.InsertAndGetIdAsync(storeInput);
 
-            var store = _storeRepository.Get(storeId);
+            var store = _storeRepository.GetAllIncluding(c => c.Client, c => c.User).FirstOrDefault(c => c.Id == storeId);
             return MapToEntityDto(store);
         }
 

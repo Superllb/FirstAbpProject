@@ -95,6 +95,7 @@ namespace FirstAbpProject.Web
                         "~/Scripts/angular-ui/ui-bootstrap.min.js",
                         "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
                         "~/Scripts/angular-ui/ui-utils.min.js",
+                        "~/Scripts/jquery.signalR-2.3.0.min.js",
 
                         "~/Abp/Framework/scripts/abp.js",
                         "~/Abp/Framework/scripts/libs/abp.jquery.js",
