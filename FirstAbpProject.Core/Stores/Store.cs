@@ -60,6 +60,6 @@ namespace FirstAbpProject.Stores
 
         public virtual long CreatorUserId { get; set; }
 
-        public virtual bool IsDelete { get; set; }
+        public virtual bool IsDeleted { get; set; }
     }
 }

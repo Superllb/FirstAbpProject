@@ -30,12 +30,12 @@
                 if (!pageNumber) {
                     pageNumber = 1;
                 }
-                if ($stateParams.mainPageParams != null) {
+                if ($stateParams.mainPageParams !== null) {
                     vm.mainPageParams = $stateParams.mainPageParams;
                     vm.filter = $stateParams.mainPageParams.filter;
 
                     if (vm.mainPageParams.skipCount > 0 && vm.mainPageParams.maxResultCount > 0) {
-                        pageNumber = (vm.mainPageParams.skipCount / vm.mainPageParams.maxResultCount) + 1;
+                        pageNumber = vm.mainPageParams.skipCount / vm.mainPageParams.maxResultCount + 1;
                     }
                 } else {
                     vm.mainPageParams = { skipCount: (pageNumber - 1) * perPageCount, maxResultCount: perPageCount, filter: vm.filter };
@@ -92,20 +92,20 @@
                 });
             };
 
-            vm.delete = function (client) {
-                abp.message.confirm(
-                    abp.localization.localize('DeleteClient') + " '" + client.name + "'?",
-                    abp.localization.localize('AreYouSure'),
-                    function (result) {
-                        if (result) {
-                            clientService.delete({ id: client.id })
-                                .then(function () {
-                                    abp.notify.info(abp.localization.localize('ActionSuccess'));
-                                    getClients();
-                                });
-                        }
-                    });
-            }
+			vm.delete = function (client) {
+				abp.message.confirm(
+					abp.localization.localize('DeleteClient') + " '" + client.name + "'?",
+					abp.localization.localize('AreYouSure'),
+					function (result) {
+						if (result) {
+							clientService.delete({ id: client.id })
+								.then(function () {
+									abp.notify.info(abp.localization.localize('ActionSuccess'));
+									getClients();
+								});
+						}
+					});
+			};
 
             vm.refresh = function () {
                 getClients();
@@ -113,7 +113,7 @@
 
             vm.refreshByEnter = function (e) {
                 var keycode = window.event ? e.keyCode : e.which;
-                if (keycode == 13) {
+                if (keycode === 13) {
                     vm.refresh();
                 }
             };   

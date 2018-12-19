@@ -112,6 +112,7 @@
     <text name="Province">省</text>
     <text name="City">市</text>
     <text name="Area">区</text>
+    <text name="Office">营业所</text>
     
     <text name="Coolers">冰箱</text>
     <text name="Cooler">冰箱</text>

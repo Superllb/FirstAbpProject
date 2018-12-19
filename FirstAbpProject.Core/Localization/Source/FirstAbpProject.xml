@@ -124,6 +124,7 @@
     <text name="Province">Province</text>
     <text name="City">City</text>
     <text name="Area">Area</text>
+    <text name="Office">Office</text>
 
     <text name="Coolers">Coolers</text>
     <text name="Cooler">Cooler</text>

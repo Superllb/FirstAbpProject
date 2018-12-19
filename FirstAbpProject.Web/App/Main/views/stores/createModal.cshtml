@@ -74,7 +74,7 @@
             <div class="col-sm-12">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        <input id="code" type="text" name="Code" ng-model="vm.client.office" required class="validate form-control">
+                        <input id="code" type="text" name="Code" ng-model="vm.store.office" required class="validate form-control">
                         <label for="code" class="form-label">@L("Office")</label>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
             <div class="col-sm-12">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        <input id="code" type="text" name="Code" ng-model="vm.client.storeCode" required class="validate form-control">
+                        <input id="code" type="text" name="Code" ng-model="vm.store.storeCode" required class="validate form-control">
                         <label for="code" class="form-label">@L("StoreCode")</label>
                     </div>
                 </div>
@@ -94,7 +94,7 @@
             <div class="col-sm-6">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        <input id="name" type="text" name="Name" ng-model="vm.client.storeName" required class="validate form-control">
+                        <input id="name" type="text" name="Name" ng-model="vm.store.storeName" required class="validate form-control">
                         <label for="name" class="form-label">@L("StoreName")</label>
                     </div>
                 </div>
@@ -102,7 +102,7 @@
             <div class="col-sm-6">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        <input id="nameen" type="text" name="NameEn" ng-model="vm.client.storeNameEn" required class="validate form-control">
+                        <input id="nameen" type="text" name="NameEn" ng-model="vm.store.storeNameEn" required class="validate form-control">
                         <label for="nameen" class="form-label">@L("StoreEnglishName")</label>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
             <div class="col-sm-6">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        <input id="address" type="text" name="Name" ng-model="vm.client.address" required class="validate form-control">
+                        <input id="address" type="text" name="Name" ng-model="vm.store.address" required class="validate form-control">
                         <label for="address" class="form-label">@L("Address")</label>
                     </div>
                 </div>
@@ -120,7 +120,7 @@
             <div class="col-sm-6">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        <input id="addressen" type="text" name="NameEn" ng-model="vm.client.addressEn" required class="validate form-control">
+                        <input id="addressen" type="text" name="NameEn" ng-model="vm.store.addressEn" required class="validate form-control">
                         <label for="addressen" class="form-label">@L("StoreEnglishAddress")</label>
                     </div>
                 </div>
@@ -130,7 +130,7 @@
             <div class="col-sm-6">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        <input id="longitude" type="text" name="Name" ng-model="vm.client.longitude" required class="validate form-control">
+                        <input id="longitude" type="text" name="Name" ng-model="vm.store.longitude" required class="validate form-control">
                         <label for="longitude" class="form-label">@L("Longitude")</label>
                     </div>
                 </div>
@@ -138,7 +138,7 @@
             <div class="col-sm-6">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        <input id="latitude" type="text" name="NameEn" ng-model="vm.client.latitude" required class="validate form-control">
+                        <input id="latitude" type="text" name="NameEn" ng-model="vm.store.latitude" required class="validate form-control">
                         <label for="latitude" class="form-label">@L("Latitude")</label>
                     </div>
                 </div>
@@ -149,7 +149,7 @@
         <button type="button" class="btn btn-default waves-effect" ng-click="vm.cancel()">
             @L("Cancel")
         </button>
-        <button type="submit" class="btn btn-primary waves-effect" ng-click="vm.save()" ng-disabled="clientCreateForm.$invalid">
+        <button type="submit" class="btn btn-primary waves-effect" ng-click="vm.save()" ng-disabled="storeCreateForm.$invalid">
             @L("Save")
         </button>
     </div>
