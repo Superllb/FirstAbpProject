@@ -7,7 +7,8 @@
             vm.stores = [];
             vm.filter = '';
             vm.mainPageParams = $stateParams.mainPageParams || null;
-            vm.isTableLoading = true;
+			vm.isTableLoading = true;
+			vm.currentLanguage = abp.localization.currentLanguage.name;
 
             var perPageCount = 10;
             $('#paginator').jqPaginator({
@@ -42,8 +43,15 @@
                 }
 
                 vm.isTableLoading = true;
-                storeService.getAll(vm.mainPageParams).then(function (result) {
-                    vm.stores = result.data.items;
+				storeService.getAll(vm.mainPageParams).then(function (result) {
+					vm.stores = result.data.items;
+					if (vm.currentLanguage !== 'zh-CN') {
+						vm.stores.map(item => {
+							item.storeName = item.storeNameEn;
+							item.address = item.addressEn;
+							return item;
+						});
+					}
                     $('#paginator').jqPaginator('option', {
                         totalCounts: result.data.totalCount,
                         currentPage: pageNumber

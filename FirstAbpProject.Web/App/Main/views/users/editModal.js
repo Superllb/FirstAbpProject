@@ -13,41 +13,41 @@
             vm.clients = [];
             vm.roles = [];
 
-            var setAssignedRoles = function (user, roles) {
-                for (var i = 0; i < roles.length; i++) {
-                    var role = roles[i];
-                    role.isAssigned = $.inArray(role.name, user.roles) >= 0;
-                }
-            }
+			var setAssignedRoles = function (user, roles) {
+				for (var i = 0; i < roles.length; i++) {
+					var role = roles[i];
+					role.isAssigned = $.inArray(role.name, user.roles) >= 0;
+				}
+			};
 
-            var init = function () {
-                userService.getAll({}).then(function (result) {
-                    vm.users = result.data.items;
-                });
-                clientService.getAll({}).then(function (result) {
-                    vm.clients = result.data.items;
-                });
-                userService.getRoles()
-                    .then(function (result) {
-                        vm.roles = result.data.items;
+			var init = function () {
+				userService.getAll({}).then(function (result) {
+					vm.users = result.data.items;
+				});
+				clientService.getAll({}).then(function (result) {
+					vm.clients = result.data.items;
+				});
+				userService.getRoles()
+					.then(function (result) {
+						vm.roles = result.data.items;
 
-                        userService.get({ id: id })
-                            .then(function (result) {
-                                vm.user = result.data;
-                                var leader = vm.user.leaderName == null ? null : vm.users.find(u => u.userName == vm.user.leaderName);
-                                if (leader) {
-                                    $scope.vm.user.leaderId = leader.id;
-                                }
-                                if (vm.currentLanguage == 'zh-CN' && vm.user.clientName) {
-                                    $scope.vm.user.clientId = vm.clients.find(c => c.name == vm.user.clientName).id;
-                                }
-                                else if (vm.user.clientName) {
-                                    $scope.vm.user.clientId = vm.clients.find(c => c.nameEn == vm.user.clientName).id;
-                                }
-                                setAssignedRoles(vm.user, vm.roles);
-                            });
-                    });
-            }
+						userService.get({ id: id })
+							.then(function (result) {
+								vm.user = result.data;
+								var leader = vm.user.leaderName == null ? null : vm.users.find(u => u.userName == vm.user.leaderName);
+								if (leader) {
+									$scope.vm.user.leaderId = leader.id;
+								}
+								if (vm.currentLanguage == 'zh-CN' && vm.user.clientName) {
+									$scope.vm.user.clientId = vm.clients.find(c => c.name == vm.user.clientName).id;
+								}
+								else if (vm.user.clientName) {
+									$scope.vm.user.clientId = vm.clients.find(c => c.nameEn == vm.user.clientName).id;
+								}
+								setAssignedRoles(vm.user, vm.roles);
+							});
+					});
+			};
 
             vm.save = function () {
                 var assingnedRoles = [];

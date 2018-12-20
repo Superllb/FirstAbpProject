@@ -11,7 +11,11 @@ namespace FirstAbpProject.Stores.Dto
     [AutoMapFrom(typeof(Store))]
     public class StoreDto : EntityDto<int>
     {
+        public virtual int ClientId { get; set; }
+
         public virtual string ClientName { get; set; }
+
+        public virtual int UserId { get; set; }
 
         public virtual string UserName { get; set; }
 
@@ -25,9 +29,13 @@ namespace FirstAbpProject.Stores.Dto
 
         public virtual string Address { get; set; }
 
+        public virtual string AddressEn { get; set; }
+
         public virtual string StoreCode { get; set; }
 
         public virtual string StoreName { get; set; }
+
+        public virtual string StoreNameEn { get; set; }
 
         public virtual float Longitude { get; set; }
 

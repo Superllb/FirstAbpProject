@@ -103,8 +103,6 @@ namespace FirstAbpProject.Stores
             entityDto.UserName = entity.User.UserName;
             if (language != "zh-CN")
             {
-                entityDto.StoreName = entity.StoreNameEn;
-                entityDto.Address = entity.AddressEn;
                 entityDto.ClientName = entity.Client.NameEn;
             }
             return entityDto;

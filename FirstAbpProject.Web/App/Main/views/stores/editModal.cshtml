@@ -1,0 +1,157 @@
+﻿<script src="~/App/Main/views/stores/cityData.js"></script>
+<form id="form_create_store" name="storeCreateForm" novalidate>
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="vm.cancel()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">
+            <span>@L("CreateNewStore")</span>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <div class="row clearfix">
+            <div class="col-sm-12">
+                <div class="form-group form-float">
+                    <div class="form-line focused">
+                        <select id="clientId" ng-model='vm.store.clientId' ng-change="vm.changeClient()"
+                                ng-options="client.id as (vm.currentLanguage == 'zh-CN' ? client.name : client.nameEn) for client in vm.clients" class="form-control">
+                            <option value="">---@L("PleaseSelect")---</option>
+                        </select>
+                        <label for="clientId" class="form-label">@L("AssignedClient")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-12">
+                <div class="form-group form-float">
+                    <div class="form-line focused">
+                        <select id="userId" ng-model='vm.store.userId'
+                                ng-options="user.id as user.userName for user in vm.users" class="form-control">
+                            <option value="">---@L("PleaseSelect")---</option>
+                        </select>
+                        <label for="userId" class="form-label">@L("AssignedUser")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-4">
+                <div class="form-group form-float">
+                    <div class="form-line focused">
+                        <select id="province" ng-model='vm.store.province' ng-change="vm.changeProvince()" class="form-control">
+                            <option value="">---@L("PleaseSelect")---</option>
+                            <option ng-repeat="province in vm.provinces" value="{{province.name}}">{{province.name}}</option>
+                        </select>
+                        <label for="province" class="form-label">@L("Province")</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group form-float">
+                    <div class="form-line focused">
+                        <select id="city" ng-model='vm.store.city' ng-change="vm.changeCity()" class="form-control">
+                            <option value="">---@L("PleaseSelect")---</option>
+                            <option ng-repeat="city in vm.cities" value="{{city.name}}">{{city.name}}</option>
+                        </select>
+                        <label for="city" class="form-label">@L("City")</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-4">
+                <div class="form-group form-float">
+                    <div class="form-line focused">
+                        <select id="area" ng-model='vm.store.area' class="form-control">
+                            <option value="">---@L("PleaseSelect")---</option>
+                            <option ng-repeat="district in vm.districts" value="{{district}}">{{district}}</option>
+                        </select>
+                        <label for="area" class="form-label">@L("Area")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix" style="margin-top:10px;">
+            <div class="col-sm-12">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input id="code" type="text" name="Code" ng-model="vm.store.office" required class="validate form-control">
+                        <label for="code" class="form-label">@L("Office")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix" style="margin-top:10px;">
+            <div class="col-sm-12">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input id="code" type="text" name="Code" ng-model="vm.store.storeCode" required class="validate form-control">
+                        <label for="code" class="form-label">@L("StoreCode")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-6">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input id="name" type="text" name="Name" ng-model="vm.store.storeName" required class="validate form-control">
+                        <label for="name" class="form-label">@L("StoreName")</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input id="nameen" type="text" name="NameEn" ng-model="vm.store.storeNameEn" required class="validate form-control">
+                        <label for="nameen" class="form-label">@L("StoreEnglishName")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-6">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input id="address" type="text" name="Name" ng-model="vm.store.address" required class="validate form-control">
+                        <label for="address" class="form-label">@L("Address")</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input id="addressen" type="text" name="NameEn" ng-model="vm.store.addressEn" required class="validate form-control">
+                        <label for="addressen" class="form-label">@L("StoreEnglishAddress")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-6">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input id="longitude" type="text" name="Name" ng-model="vm.store.longitude" required class="validate form-control">
+                        <label for="longitude" class="form-label">@L("Longitude")</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input id="latitude" type="text" name="NameEn" ng-model="vm.store.latitude" required class="validate form-control">
+                        <label for="latitude" class="form-label">@L("Latitude")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" ng-click="vm.cancel()">
+            @L("Cancel")
+        </button>
+        <button type="submit" class="btn btn-primary waves-effect" ng-click="vm.save()" ng-disabled="storeCreateForm.$invalid">
+            @L("Save")
+        </button>
+    </div>
+
+</form>
