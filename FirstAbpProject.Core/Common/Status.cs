@@ -5,8 +5,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace FirstAbpProject
+namespace FirstAbpProject.Common
 {
+    /// <summary>
+    /// represents working status
+    /// </summary>
     public enum Status : int
     {
         [Description("正常")]

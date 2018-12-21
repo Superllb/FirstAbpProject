@@ -2,6 +2,7 @@
 using Abp.Domain.Entities.Auditing;
 using FirstAbpProject.Authorization.Users;
 using FirstAbpProject.Clients;
+using FirstAbpProject.Common;
 using FirstAbpProject.Sloths;
 using FirstAbpProject.Stores;
 using System;
