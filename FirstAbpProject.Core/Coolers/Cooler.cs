@@ -31,12 +31,7 @@ namespace FirstAbpProject.Coolers
         [ForeignKey("StoreId")]
         public virtual Store Store { get; set; }
         public virtual int StoreId { get; set; }
-
-        /// <summary>
-        /// The sloth id in Slothes table
-        /// </summary>
-        [ForeignKey("SlothId")]
-        public virtual Sloth Sloth { get; set; }
+        
         public virtual int SlothId { get; set; }
 
         public virtual string CoolerType { get; set; }

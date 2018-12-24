@@ -54,7 +54,11 @@ namespace FirstAbpProject.Coolers
             coolerInput.Status = Status.Alive;
             coolerInput.IsDeleted = false;
 
-            _slothRepository.InsertAndGetId(new Sloth {
+            var coolerId = await _coolerRepository.InsertAndGetIdAsync(coolerInput);
+
+            _slothRepository.InsertAndGetId(new Sloth
+            {
+                CoolerId = coolerId,
                 SlothId = input.SlothId,
                 ModelType = 0,
                 CameraCount = 2,
@@ -63,7 +67,6 @@ namespace FirstAbpProject.Coolers
                 CreationTime = DateTime.UtcNow
             });
 
-            var coolerId = await _coolerRepository.InsertAndGetIdAsync(coolerInput);
             var cooler = _coolerRepository.GetAllIncluding(c => c.Client, c => c.User).FirstOrDefault(c => c.Id == coolerId);
             return MapToEntityDto(cooler);
         }
@@ -117,6 +120,40 @@ namespace FirstAbpProject.Coolers
         {
             CheckUpdatePermission();
             var cooler = await _coolerRepository.GetAsync(input.Id);
+
+            if (cooler.SlothId != input.SlothId)
+            {
+                var oSloth = await _slothRepository.FirstOrDefaultAsync(t => t.SlothId == cooler.SlothId);
+                if (oSloth != null)
+                {
+                    oSloth.IsDeleted = true;
+                    oSloth.LastModificationTime = DateTime.UtcNow;
+                    await _slothRepository.UpdateAsync(oSloth);
+                }
+
+                var sloth = await _slothRepository.FirstOrDefaultAsync(t => t.SlothId == input.SlothId);
+                if (sloth == null)
+                {
+                    await _slothRepository.InsertAndGetIdAsync(new Sloth
+                    {
+                        CoolerId = cooler.Id,
+                        SlothId = input.SlothId,
+                        ModelType = 0,
+                        CameraCount = 2,
+                        Status = Status.Alive,
+                        IsDeleted = false,
+                        CreationTime = DateTime.UtcNow
+                    });
+                }
+                //else
+                //{
+                //    sloth.CoolerId = input.Id;
+                //    sloth.IsDeleted = false;
+                //    sloth.LastModificationTime = DateTime.UtcNow;
+                //    await _slothRepository.UpdateAsync(sloth);
+                //}
+            }
+
             MapToEntity(input, cooler);
             await _coolerRepository.UpdateAsync(cooler);
 

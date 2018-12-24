@@ -12,6 +12,8 @@ namespace FirstAbpProject.Sloths.Dto
     [AutoMapTo(typeof(Sloth))]
     public class UpdateSlothDto : EntityDto<int>
     {
+        public virtual int CoolerId { get; set; }
+
         public virtual int SlothId { get; set; }
 
         public virtual string Name { get; set; }

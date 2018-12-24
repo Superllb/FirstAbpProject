@@ -12,7 +12,10 @@ namespace FirstAbpProject.Sloths.Dto
     [AutoMapFrom(typeof(Sloth))]
     public class SlothDto : EntityDto<int>
     {
+        public virtual int CoolerId { get; set; }
+
         public virtual int SlothId { get; set; }
+
         public virtual string ModelVersion { get; set; }
 
         public virtual int ModelType { get; set; }

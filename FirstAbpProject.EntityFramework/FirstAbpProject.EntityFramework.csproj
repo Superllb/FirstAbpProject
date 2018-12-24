@@ -280,6 +280,14 @@
     <Compile Include="Migrations\201812211142242_AddClientIdAndUserIdToCoolerEntity.Designer.cs">
       <DependentUpon>201812211142242_AddClientIdAndUserIdToCoolerEntity.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812240520582_RemoveSlothIdForeignKey.cs" />
+    <Compile Include="Migrations\201812240520582_RemoveSlothIdForeignKey.Designer.cs">
+      <DependentUpon>201812240520582_RemoveSlothIdForeignKey.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812240527165_SetCoolerIdAsForeignKey.cs" />
+    <Compile Include="Migrations\201812240527165_SetCoolerIdAsForeignKey.Designer.cs">
+      <DependentUpon>201812240527165_SetCoolerIdAsForeignKey.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\201812241056322_AddSlothIdToSlothEntity.cs" />
     <Compile Include="Migrations\201812241056322_AddSlothIdToSlothEntity.Designer.cs">
       <DependentUpon>201812241056322_AddSlothIdToSlothEntity.cs</DependentUpon>
@@ -350,6 +358,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812211142242_AddClientIdAndUserIdToCoolerEntity.resx">
       <DependentUpon>201812211142242_AddClientIdAndUserIdToCoolerEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812240520582_RemoveSlothIdForeignKey.resx">
+      <DependentUpon>201812240520582_RemoveSlothIdForeignKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812240527165_SetCoolerIdAsForeignKey.resx">
+      <DependentUpon>201812240527165_SetCoolerIdAsForeignKey.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812241056322_AddSlothIdToSlothEntity.resx">
       <DependentUpon>201812241056322_AddSlothIdToSlothEntity.cs</DependentUpon>

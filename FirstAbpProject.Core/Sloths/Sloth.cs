@@ -1,6 +1,7 @@
 ﻿using Abp.Domain.Entities;
 using Abp.Domain.Entities.Auditing;
 using FirstAbpProject.Common;
+using FirstAbpProject.Coolers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,6 +14,10 @@ namespace FirstAbpProject.Sloths
     [Table("Sloths")]
     public class Sloth : Entity<int>, IHasCreationTime, ISoftDelete
     {
+        [ForeignKey("CoolerId")]
+        public virtual Cooler Cooler { get; set; }
+        public virtual int CoolerId { get; set; }
+
         [Index]
         public virtual int SlothId { get; set; }
 

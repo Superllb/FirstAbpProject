@@ -117,6 +117,7 @@
     
     <text name="Coolers">冰箱</text>
     <text name="Cooler">冰箱</text>
+    <text name="CoolerId">冰箱编号</text>
     <text name="AddCooler">添加冰箱</text>
     <text name="CreateNewCooler">创建新冰箱</text>
     <text name="EditCooler">编辑冰箱</text>

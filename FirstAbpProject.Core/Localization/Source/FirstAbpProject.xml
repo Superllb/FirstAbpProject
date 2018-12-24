@@ -129,6 +129,7 @@
 
     <text name="Coolers">Coolers</text>
     <text name="Cooler">Cooler</text>
+    <text name="CoolerId">Cooler Id</text>
     <text name="AddCooler">Add Cooler</text>
     <text name="CreateNewCooler">Create New Cooler</text>
     <text name="EditCooler">Edit Cooler</text>

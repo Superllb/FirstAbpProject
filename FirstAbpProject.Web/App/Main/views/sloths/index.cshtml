@@ -26,6 +26,7 @@
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
+                            <th>@L("CoolerId")</th>
                             <th>@L("SlothId")</th>
                             <th>@L("ModelVersion")</th>
                             <th>@L("ModelType")</th>
@@ -39,6 +40,7 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="sloth in vm.sloths">
+                            <td>{{sloth.coolerId}}</td>
                             <td>{{sloth.slothId}}</td>
                             <td>{{sloth.modelVersion}}</td>
                             <td>{{sloth.modelType}}</td>

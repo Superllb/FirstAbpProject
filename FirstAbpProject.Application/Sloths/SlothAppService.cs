@@ -57,18 +57,18 @@ namespace FirstAbpProject.Sloths
 
             if (!string.IsNullOrEmpty(input.Filter) && int.TryParse(input.Filter, out int id))
             {
-                query = query.Where(q => q.Id == id);
+                query = query.Where(q => q.SlothId == id);
             }
 
             var totalCount = query.Count();
             List<Sloth> sloths = new List<Sloth>();
             if (input.IsNotPaged)
             {
-                sloths = query.OrderBy(q => q.Id).ToList();
+                sloths = query.OrderByDescending(q => q.Id).ToList();
             }
             else
             {
-                sloths = query.OrderBy(q => q.Id).PageBy(input).ToList();
+                sloths = query.OrderByDescending(q => q.Id).PageBy(input).ToList();
             }
 
             return new PagedResultDto<SlothDto>(
