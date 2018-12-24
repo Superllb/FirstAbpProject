@@ -8,110 +8,75 @@
         </h4>
     </div>
     <div class="modal-body">
-
-        <div class="row clearfix" style="margin-top:10px;">
-            <div class="row clearfix">
-                <div class="col-sm-12">
-                    <div class="form-group form-float">
-                        <div class="form-line focused">
-                            <select id="clientId" ng-model='vm.cooler.clientId' ng-change="vm.changeClient()"
-                                    ng-options="client.id as (vm.currentLanguage == 'zh-CN' ? client.name : client.nameEn) for client in vm.clients" class="form-control">
-                                <option value="">---@L("PleaseSelect")---</option>
-                            </select>
-                            <label for="clientId" class="form-label">@L("AssignedClient")</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row clearfix">
-                <div class="col-sm-12">
-                    <div class="form-group form-float">
-                        <div class="form-line focused">
-                            <select id="userId" ng-model='vm.cooler.userId'
-                                    ng-options="user.id as user.userName for user in vm.users" class="form-control">
-                                <option value="">---@L("PleaseSelect")---</option>
-                            </select>
-                            <label for="userId" class="form-label">@L("AssignedUser")</label>
-                        </div>
-                    </div>
-                </div>
-            </div>
+        <div class="row clearfix">
             <div class="col-sm-12">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        <input id="slothId" type="text" name="Code" ng-model="vm.cooler.slothId" required class="validate form-control">
-                        <label for="slothId" class="form-label">@L("Id")</label>
+                        <input id="storeId" type="text" name="storeId" ng-model="vm.cooler.storeId" ng-init="vm.cooler.storeId = vm.storeId" required readonly class="validate form-control">
+                        <label for="storeId" class="form-label">@L("StoreId")</label>
                     </div>
                 </div>
             </div>
         </div>
-        
         <div class="row clearfix">
-            <div class="col-sm-4">
+            <div class="col-sm-12">
                 <div class="form-group form-float">
-                    <div class="form-line focused">
-                        <select id="province" ng-model='vm.cooler.province' ng-change="vm.changeProvince()" class="form-control">
-                            <option value="">---@L("PleaseSelect")---</option>
-                            <option ng-repeat="province in vm.provinces" value="{{province.name}}">{{province.name}}</option>
-                        </select>
-                        <label for="province" class="form-label">@L("Province")</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group form-float">
-                    <div class="form-line focused">
-                        <select id="city" ng-model='vm.cooler.city' ng-change="vm.changeCity()" class="form-control">
-                            <option value="">---@L("PleaseSelect")---</option>
-                            <option ng-repeat="city in vm.cities" value="{{city.name}}">{{city.name}}</option>
-                        </select>
-                        <label for="city" class="form-label">@L("City")</label>
-                    </div>
-                </div>
-            </div>
-            <div class="col-sm-4">
-                <div class="form-group form-float">
-                    <div class="form-line focused">
-                        <select id="area" ng-model='vm.cooler.area' class="form-control">
-                            <option value="">---@L("PleaseSelect")---</option>
-                            <option ng-repeat="district in vm.districts" value="{{district}}">{{district}}</option>
-                        </select>
-                        <label for="area" class="form-label">@L("Area")</label>
+                    <div class="form-line">
+                        <input id="slothId" type="text" name="storeId" ng-model="vm.cooler.slothId" required class="validate form-control">
+                        <label for="slothId" class="form-label">@L("SlothId")</label>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="row clearfix">
             <div class="col-sm-6">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        <input id="name" type="text" name="Name" ng-model="vm.client.name" required class="validate form-control">
-                        <label for="name" class="form-label">@L("ClientName")</label>
+                        <input id="coolerType" type="text" name="coolerType" ng-model="vm.cooler.coolerType" class="validate form-control">
+                        <label for="coolerType" class="form-label">@L("CoolerType")</label>
                     </div>
                 </div>
             </div>
             <div class="col-sm-6">
                 <div class="form-group form-float">
                     <div class="form-line">
-                        <input id="nameen" type="text" name="NameEn" ng-model="vm.client.nameEn" required class="validate form-control">
-                        <label for="nameen" class="form-label">@L("ClientEnglishName")</label>
+                        <input id="coolerCode" type="text" name="coolerCode" ng-model="vm.cooler.coolerCode" class="validate form-control">
+                        <label for="coolerCode" class="form-label">@L("CoolerCode")</label>
                     </div>
                 </div>
             </div>
         </div>
-
         <div class="row clearfix">
             <div class="col-sm-12">
+                <div class="form-group form-float">
+                    <div class="form-line focused">
+                        <select id="dataType" ng-model='vm.cooler.dataType'
+                                ng-options="type.id as type.text for type in vm.types" class="form-control">
+                            <option value="">---@L("PleaseSelect")---</option>
+                        </select>
+                        <label for="dataType" class="form-label">@L("DataType")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-6">
                 <div class="form-group form-float">
                     <div class="">
-                        <input id="isactive" type="checkbox" name="IsActive" ng-model="vm.client.isActive" checked class="form-control" />
-                        <label for="isactive" class="form-label">@L("IsActive")</label>
+                        <input id="isOnline" type="checkbox" name="isOnline" ng-model="vm.cooler.isOnline" checked class="form-control" />
+                        <label for="isOnline" class="form-label">@L("IsOnline")</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group form-float">
+                    <div class="">
+                        <input id="isQa" type="checkbox" name="isActive" ng-model="vm.cooler.isQa" checked class="form-control" />
+                        <label for="isQa" class="form-label">@L("IsQa")</label>
                     </div>
                 </div>
             </div>
         </div>
-
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-default waves-effect" ng-click="vm.cancel()">
@@ -123,4 +88,3 @@
     </div>
 
 </form>
-<script src="~/App/Main/views/coolers/cityData.js"></script>

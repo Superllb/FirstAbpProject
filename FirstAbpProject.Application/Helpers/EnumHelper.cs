@@ -23,6 +23,15 @@ namespace FirstAbpProject.Helpers
                 }).ToList();
         }
 
+        public static EnumDetail GetEnumDetail(Enum value)
+        {
+            return new EnumDetail {
+                Value = Convert.ToInt32(value),
+                Name = value.ToString(),
+                Description = GetDescription(value)
+            };
+        }
+
         public static string GetDescription(Enum value)
         {
             return value.GetType().GetMember(value.ToString()).FirstOrDefault()?.GetCustomAttribute<DescriptionAttribute>()?.Description;

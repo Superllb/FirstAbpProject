@@ -17,6 +17,14 @@ namespace FirstAbpProject.Coolers
     [Table("Coolers")]
     public class Cooler : Entity<int>, IHasCreationTime, ISoftDelete
     {
+        [ForeignKey("ClientId")]
+        public virtual Client Client { get; set; }
+        public virtual int ClientId { get; set; }
+
+        [ForeignKey("UserId")]
+        public virtual User User { get; set; }
+        public virtual long UserId { get; set; }
+
         /// <summary>
         /// The store id in Stores table
         /// </summary>
@@ -36,6 +44,8 @@ namespace FirstAbpProject.Coolers
         public virtual string CoolerCode { get; set; }
 
         public Status Status { get; set; }
+
+        public DataType DataType { get; set; }
 
         /// <summary>
         /// Run local model(false) or cloud model(true), default true

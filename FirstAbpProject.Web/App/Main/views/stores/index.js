@@ -98,15 +98,38 @@
                 modalInstance.result.then(function () {
                     getStores();
                 });
-            };
+			};
+
+			vm.openCoolerAddModal = function (store) {
+				var modalInstance = $uibModal.open({
+					templateUrl: '/App/Main/views/coolers/createModal.cshtml',
+					controller: 'app.views.coolers.createModal as vm',
+					backdrop: 'static',
+					resolve: {
+						id: function () {
+							return store.id;
+						}
+					}
+				});
+
+				modalInstance.rendered.then(function () {
+					$timeout(function () {
+						$.AdminBSB.input.activate();
+					}, 0);
+				});
+
+				modalInstance.result.then(function () {
+					$state.go('coolers');
+				});
+			};
 
 			vm.delete = function (store) {
 				abp.message.confirm(
-					abp.localization.localize('DeleteStore') + " '" + client.slothId + "'?",
+					abp.localization.localize('DeleteStore') + " '" + store.Id + "'?",
 					abp.localization.localize('AreYouSure'),
 					function (result) {
 						if (result) {
-							storeService.delete({ id: stores.id })
+							storeService.delete({ id: store.id })
 								.then(function () {
 									abp.notify.info(abp.localization.localize('ActionSuccess'));
 									getStores();

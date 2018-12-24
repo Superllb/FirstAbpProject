@@ -113,6 +113,7 @@
 
     <text name="Stores">Stores</text>
     <text name="Store">Store</text>
+    <text name="StoreId">Store ID</text>
     <text name="CreateNewStore">Create New Store</text>
     <text name="EditStore">Edit Store</text>
     <text name="DeleteStore">Delete Store</text>
@@ -128,11 +129,13 @@
 
     <text name="Coolers">Coolers</text>
     <text name="Cooler">Cooler</text>
+    <text name="AddCooler">Add Cooler</text>
     <text name="CreateNewCooler">Create New Cooler</text>
     <text name="EditCooler">Edit Cooler</text>
     <text name="DeleteCooler">Delete Cooler</text>
     <text name="CoolerType">Cooler Type</text>
     <text name="CoolerCode">Cooler Code</text>
+    <text name="DataType">DataType</text>
     <text name="IsOnline">IsOnline</text>
     <text name="IsQa">IsQa</text>
 

@@ -15,28 +15,18 @@ namespace FirstAbpProject.Coolers.Dto
         
         public virtual string UserName { get; set; }
 
+        public virtual int StoreId { get; set; }
+
         public virtual int SlothId { get; set; }
-
-        public virtual string Province { get; set; }
-
-        public virtual string City { get; set; }
-
-        public virtual string Area { get; set; }
-
-        public virtual string Office { get; set; }
-
-        public virtual string Address { get; set; }
 
         public virtual string CoolerType { get; set; }
 
         public virtual string CoolerCode { get; set; }
 
-        public virtual string StoreCode { get; set; }
-
-        public virtual string StoreName { get; set; }
-
+        public virtual string Type { get; set; }
+        
         public virtual float Longitude { get; set; }
-
+        
         public virtual float Latitude { get; set; }
 
         public virtual bool IsOnline { get; set; }

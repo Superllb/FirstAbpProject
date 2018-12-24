@@ -69,7 +69,7 @@
                 });
             };
 
-            vm.openCoolerEditModal = function (client) {
+            vm.openCoolerEditModal = function (cooler) {
                 var modalInstance = $uibModal.open({
                     templateUrl: '/App/Main/views/coolers/editModal.cshtml',
                     controller: 'app.views.coolers.editModal as vm',
@@ -92,20 +92,20 @@
                 });
             };
 
-            vm.delete = function (cooler) {
-                abp.message.confirm(
-                    abp.localization.localize('DeleteCooler') + " '" + client.slothId + "'?",
-                    abp.localization.localize('AreYouSure'),
-                    function (result) {
-                        if (result) {
-                            coolerService.delete({ id: cooler.id })
-                                .then(function () {
-                                    abp.notify.info(abp.localization.localize('ActionSuccess'));
-                                    getCoolers();
-                                });
-                        }
-                    });
-            }
+			vm.delete = function (cooler) {
+				abp.message.confirm(
+					abp.localization.localize('DeleteCooler') + " '" + cooler.id + "'?",
+					abp.localization.localize('AreYouSure'),
+					function (result) {
+						if (result) {
+							coolerService.delete({ id: cooler.id })
+								.then(function () {
+									abp.notify.info(abp.localization.localize('ActionSuccess'));
+									getCoolers();
+								});
+						}
+					});
+			};
 
             vm.refresh = function () {
                 getCoolers();
@@ -113,7 +113,7 @@
 
             vm.refreshByEnter = function (e) {
                 var keycode = window.event ? e.keyCode : e.which;
-                if (keycode == 13) {
+                if (keycode === 13) {
                     vm.refresh();
                 }
             };

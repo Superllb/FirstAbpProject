@@ -101,6 +101,7 @@
 
     <text name="Stores">商店</text>
     <text name="Store">商店</text>
+    <text name="StoreId">商店ID</text>
     <text name="CreateNewStore">创建新商店</text>
     <text name="EditStore">编辑商店</text>
     <text name="DeleteStore">删除商店</text>
@@ -116,11 +117,13 @@
     
     <text name="Coolers">冰箱</text>
     <text name="Cooler">冰箱</text>
+    <text name="AddCooler">添加冰箱</text>
     <text name="CreateNewCooler">创建新冰箱</text>
     <text name="EditCooler">编辑冰箱</text>
     <text name="DeleteCooler">删除冰箱</text>
     <text name="CoolerType">冰箱类型</text>
     <text name="CoolerCode">冰箱编号</text>
+    <text name="DataType">数据类型</text>
     <text name="IsOnline">是否线上</text>
     <text name="IsQa">是否QA</text>
     

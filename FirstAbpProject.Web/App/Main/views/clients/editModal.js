@@ -8,12 +8,12 @@
                 isActive: true
             };
 
-            var init = function () {
-                clientService.get({ id: id })
-                    .then(function (result) {
-                        vm.client = result.data;
-                    });
-            }
+			var init = function () {
+				clientService.get({ id: id })
+					.then(function (result) {
+						vm.client = result.data;
+					});
+			};
 
             vm.save = function () {
                 clientService.update(vm.client)

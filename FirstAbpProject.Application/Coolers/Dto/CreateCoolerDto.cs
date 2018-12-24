@@ -22,10 +22,7 @@ namespace FirstAbpProject.Coolers.Dto
         public virtual string CoolerCode { get; set; }
 
         [Required]
-        public virtual float Longitude { get; set; }
-
-        [Required]
-        public virtual float Latitude { get; set; }
+        public virtual DataType DataType { get; set; }
 
         public virtual bool IsOnline { get; set; }
 

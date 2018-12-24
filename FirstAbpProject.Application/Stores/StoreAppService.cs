@@ -49,6 +49,7 @@ namespace FirstAbpProject.Stores
         [AbpAuthorize(PermissionNames.Pages_Stores)]
         public override async Task Delete(EntityDto<int> input)
         {
+            CheckDeletePermission();
             var store = await _storeRepository.GetAsync(input.Id);
             store.IsDeleted = true;
 
@@ -93,6 +94,12 @@ namespace FirstAbpProject.Stores
             await _storeRepository.UpdateAsync(store);
 
             return MapToEntityDto(store);
+        }
+
+        protected override Task<Store> GetEntityByIdAsync(int id)
+        {
+            var store = _storeRepository.GetAllIncluding(c => c.Client, c => c.User).FirstOrDefault(t => t.Id == id);
+            return Task.FromResult(store);
         }
 
         protected override StoreDto MapToEntityDto(Store entity)

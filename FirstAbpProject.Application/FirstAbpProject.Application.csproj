@@ -236,6 +236,7 @@
     <Compile Include="Configuration\Ui\UiThemeInfo.cs" />
     <Compile Include="Configuration\Ui\UiThemes.cs" />
     <Compile Include="FirstAbpProjectPagedResultRequestDto.cs" />
+    <Compile Include="Helpers\EnumHelper.cs" />
     <Compile Include="MultiTenancy\Dto\CreateTenantDto.cs" />
     <Compile Include="MultiTenancy\Dto\EditTenantDto.cs" />
     <Compile Include="MultiTenancy\Dto\TenantDto.cs" />
@@ -246,6 +247,11 @@
     <Compile Include="Roles\Dto\PermissionDto.cs" />
     <Compile Include="Roles\Dto\RoleDto.cs" />
     <Compile Include="Roles\IRoleAppService.cs" />
+    <Compile Include="Sloths\Dto\CreateSlothDto.cs" />
+    <Compile Include="Sloths\Dto\SlothDto.cs" />
+    <Compile Include="Sloths\Dto\UpdateSlothDto.cs" />
+    <Compile Include="Sloths\ISlothAppService.cs" />
+    <Compile Include="Sloths\SlothAppService.cs" />
     <Compile Include="Stores\Dto\CreateStoreDto.cs" />
     <Compile Include="Stores\Dto\StoreDto.cs" />
     <Compile Include="Stores\Dto\UpdateStoreDto.cs" />

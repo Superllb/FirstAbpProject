@@ -26,14 +26,16 @@
                 <table class="table table-hover table-striped">
                     <thead>
                         <tr>
-                            <th>@L("SlothId")</th>
+                            <th>@L("Id")</th>
                             <th>@L("AssignedClient")</th>
                             <th>@L("AssignedUser")</th>
+                            <th>@L("StoreId")</th>
+                            <th>@L("SlothId")</th>
                             <th>@L("CoolerType")</th>
                             <th>@L("CoolerCode")</th>
-                            <th>@L("StoreCode")</th>
-                            <th>@L("StoreName")</th>
-                            <th>@L("Address")</th>
+                            <th>@L("DataType")</th>
+                            <th>@L("Longitude")</th>
+                            <th>@L("Latitude")</th>
                             <th>
                                 <div style="text-align:center">@L("IsOnline")</div>
                             </th>
@@ -45,14 +47,16 @@
                     </thead>
                     <tbody>
                         <tr ng-repeat="cooler in vm.coolers">
-                            <td>{{cooler.slothId}}</td>
+                            <td>{{cooler.id}}</td>
                             <td>{{cooler.clientName}}</td>
                             <td>{{cooler.userName}}</td>
+                            <td>{{cooler.storeId}}</td>
+                            <td>{{cooler.slothId}}</td>
                             <td>{{cooler.coolerType}}</td>
                             <td>{{cooler.coolerCode}}</td>
-                            <td>{{cooler.storeCode}}</td>
-                            <td>{{cooler.storeName}}</td>
-                            <td>{{cooler.address}}</td>
+                            <td>{{cooler.type}}</td>
+                            <td>{{cooler.Longitude}}</td>
+                            <td>{{cooler.Latitude}}</td>
                             <td align="center">
                                 <i class="material-icons" ng-if="cooler.isOnline" style="color:green;">check_box</i>
                                 <i class="material-icons" ng-if="!cooler.isOnline" style="color:red;">indeterminate_check_box</i>

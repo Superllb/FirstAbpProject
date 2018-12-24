@@ -272,6 +272,14 @@
     <Compile Include="Migrations\201812190857241_ModifyIsDeleteToIsDeletedOfStore.Designer.cs">
       <DependentUpon>201812190857241_ModifyIsDeleteToIsDeletedOfStore.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201812211116178_AddDataTypeToCoolerEntity.cs" />
+    <Compile Include="Migrations\201812211116178_AddDataTypeToCoolerEntity.Designer.cs">
+      <DependentUpon>201812211116178_AddDataTypeToCoolerEntity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201812211142242_AddClientIdAndUserIdToCoolerEntity.cs" />
+    <Compile Include="Migrations\201812211142242_AddClientIdAndUserIdToCoolerEntity.Designer.cs">
+      <DependentUpon>201812211142242_AddClientIdAndUserIdToCoolerEntity.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\AbpZeroDbMigrator.cs" />
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Migrations\SeedData\DefaultEditionsCreator.cs" />
@@ -332,6 +340,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201812190857241_ModifyIsDeleteToIsDeletedOfStore.resx">
       <DependentUpon>201812190857241_ModifyIsDeleteToIsDeletedOfStore.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812211116178_AddDataTypeToCoolerEntity.resx">
+      <DependentUpon>201812211116178_AddDataTypeToCoolerEntity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201812211142242_AddClientIdAndUserIdToCoolerEntity.resx">
+      <DependentUpon>201812211142242_AddClientIdAndUserIdToCoolerEntity.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
