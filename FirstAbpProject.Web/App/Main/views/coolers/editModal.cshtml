@@ -1,0 +1,90 @@
+﻿<form id="form_create_client" name="coolerEditForm" novalidate>
+    <div class="modal-header">
+        <button type="button" class="close" ng-click="vm.cancel()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+        <h4 class="modal-title">
+            <span>@L("EditCooler")</span>
+        </h4>
+    </div>
+    <div class="modal-body">
+        <div class="row clearfix">
+            <div class="col-sm-12">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input id="storeId" type="text" name="storeId" ng-model="vm.cooler.storeId" required readonly class="validate form-control">
+                        <label for="storeId" class="form-label">@L("StoreId")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-12">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input id="slothId" type="text" name="storeId" ng-model="vm.cooler.slothId" required class="validate form-control">
+                        <label for="slothId" class="form-label">@L("SlothId")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-6">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input id="coolerType" type="text" name="coolerType" ng-model="vm.cooler.coolerType" class="validate form-control">
+                        <label for="coolerType" class="form-label">@L("CoolerType")</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group form-float">
+                    <div class="form-line">
+                        <input id="coolerCode" type="text" name="coolerCode" ng-model="vm.cooler.coolerCode" class="validate form-control">
+                        <label for="coolerCode" class="form-label">@L("CoolerCode")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-12">
+                <div class="form-group form-float">
+                    <div class="form-line focused">
+                        <select id="dataType" ng-model='vm.cooler.dataType'
+                                ng-options="type.id as type.text for type in vm.types" class="form-control">
+                            <option value="">---@L("PleaseSelect")---</option>
+                        </select>
+                        <label for="dataType" class="form-label">@L("DataType")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row clearfix">
+            <div class="col-sm-6">
+                <div class="form-group form-float">
+                    <div class="">
+                        <input id="isOnline" type="checkbox" name="isOnline" ng-model="vm.cooler.isOnline" checked class="form-control" />
+                        <label for="isOnline" class="form-label">@L("IsOnline")</label>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-6">
+                <div class="form-group form-float">
+                    <div class="">
+                        <input id="isQa" type="checkbox" name="isActive" ng-model="vm.cooler.isQa" checked class="form-control" />
+                        <label for="isQa" class="form-label">@L("IsQa")</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-default waves-effect" ng-click="vm.cancel()">
+            @L("Cancel")
+        </button>
+        <button type="submit" class="btn btn-primary waves-effect" ng-click="vm.save()" ng-disabled="clientCreateForm.$invalid">
+            @L("Save")
+        </button>
+    </div>
+
+</form>

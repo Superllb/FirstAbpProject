@@ -463,6 +463,7 @@
     <Content Include="App\Main\views\clients\index.js" />
     <None Include="App\Main\views\coolers\createModal.cshtml" />
     <Content Include="App\Main\views\coolers\createModal.js" />
+    <Content Include="App\Main\views\coolers\editModal.js" />
     <Content Include="App\Main\views\coolers\index.js" />
     <Content Include="App\Main\views\directives\autoFocus.js" />
     <Content Include="App\Main\views\directives\enterKey.js" />
@@ -477,6 +478,7 @@
     <Content Include="App\Main\views\roles\editModal.js" />
     <Content Include="App\Main\views\roles\createModal.js" />
     <Content Include="App\Main\views\roles\index.js" />
+    <Content Include="App\Main\views\sloths\index.js" />
     <Content Include="App\Main\views\stores\cityData.js" />
     <Content Include="App\Main\views\stores\createModal.js" />
     <Content Include="App\Main\views\stores\editModal.js" />
@@ -2721,6 +2723,8 @@
     <Content Include="App\Main\views\stores\index.cshtml" />
     <Content Include="App\Main\views\stores\createModal.cshtml" />
     <Content Include="App\Main\views\stores\editModal.cshtml" />
+    <Content Include="App\Main\views\sloths\index.cshtml" />
+    <Content Include="App\Main\views\coolers\editModal.cshtml" />
     <None Include="bundleconfig.json" />
     <None Include="compilerconfig.json" />
     <None Include="compilerconfig.json.defaults">
@@ -3809,7 +3813,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App\Main\views\sloths\" />
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>

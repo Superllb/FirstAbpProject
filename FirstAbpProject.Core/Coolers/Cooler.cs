@@ -43,9 +43,9 @@ namespace FirstAbpProject.Coolers
 
         public virtual string CoolerCode { get; set; }
 
-        public Status Status { get; set; }
+        public virtual Status Status { get; set; }
 
-        public DataType DataType { get; set; }
+        public virtual DataType DataType { get; set; }
 
         /// <summary>
         /// Run local model(false) or cloud model(true), default true

@@ -132,11 +132,11 @@ namespace FirstAbpProject.Coolers
             entityDto.UserName = entity.User.UserName;
             entityDto.Longitude = entity.Store.Longitude;
             entityDto.Latitude = entity.Store.Latitude;
-            entityDto.Type = EnumHelper.GetEnumDetail(entity.DataType).Description;
+            entityDto.DataType = EnumHelper.GetEnumDetail(entity.DataType).Description;
             if (language != "zh-CN")
             {
                 entityDto.ClientName = entity.Client.NameEn;
-                entityDto.Type = EnumHelper.GetEnumDetail(entity.DataType).Name;
+                entityDto.DataType = EnumHelper.GetEnumDetail(entity.DataType).Name;
             }
             return entityDto;
         }

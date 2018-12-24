@@ -1,5 +1,6 @@
 ﻿using Abp.Application.Services.Dto;
 using Abp.AutoMapper;
+using FirstAbpProject.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,11 +24,13 @@ namespace FirstAbpProject.Coolers.Dto
 
         public virtual string CoolerCode { get; set; }
 
-        public virtual string Type { get; set; }
+        public virtual string DataType { get; set; }
         
         public virtual float Longitude { get; set; }
         
         public virtual float Latitude { get; set; }
+
+        public virtual Status Status { get; set; }
 
         public virtual bool IsOnline { get; set; }
 

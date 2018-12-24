@@ -126,6 +126,7 @@
     <text name="DataType">数据类型</text>
     <text name="IsOnline">是否线上</text>
     <text name="IsQa">是否QA</text>
+    <text name="Status">状态</text>
     
     <text name="Longitude">经度</text>
     <text name="Latitude">纬度</text>

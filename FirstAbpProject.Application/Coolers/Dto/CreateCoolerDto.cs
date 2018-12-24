@@ -1,4 +1,5 @@
 ﻿using Abp.AutoMapper;
+using FirstAbpProject.Common;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -22,7 +23,9 @@ namespace FirstAbpProject.Coolers.Dto
         public virtual string CoolerCode { get; set; }
 
         [Required]
-        public virtual DataType DataType { get; set; }
+        public virtual Common.DataType DataType { get; set; }
+
+        public virtual Status Status { get; set; }
 
         public virtual bool IsOnline { get; set; }
 

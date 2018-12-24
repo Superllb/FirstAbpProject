@@ -138,6 +138,7 @@
     <text name="DataType">DataType</text>
     <text name="IsOnline">IsOnline</text>
     <text name="IsQa">IsQa</text>
+    <text name="Status">Status</text>
 
     <text name="Longitude">Longitude</text>
     <text name="Latitude">Latitude</text>

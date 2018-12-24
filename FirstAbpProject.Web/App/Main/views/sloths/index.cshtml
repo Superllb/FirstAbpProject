@@ -1,9 +1,9 @@
-﻿<div class="row clearfix" ng-controller="app.views.coolers.index as vm">
+﻿<div class="row clearfix" ng-controller="app.views.sloths.index as vm">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
         <div class="card main-content">
             <div class="header">
                 <h2>
-                    @L("Coolers")
+                    @L("Sloths")
                     <i class="fa fa-spin fa-spinner" ng-if="vm.isTableLoading"></i>
                 </h2>
                 <ul class="header-dropdown m-r--5">
@@ -35,9 +35,6 @@
                             <th>@L("CoolerCode")</th>
                             <th>@L("DataType")</th>
                             <th>
-                                <div style="text-align:center">@L("Status")</div>
-                            </th>
-                            <th>
                                 <div style="text-align:center">@L("IsOnline")</div>
                             </th>
                             <th>
@@ -55,12 +52,7 @@
                             <td>{{cooler.slothId}}</td>
                             <td>{{cooler.coolerType}}</td>
                             <td>{{cooler.coolerCode}}</td>
-                            <td>{{cooler.dataType}}</td>
-                            <td align="center">
-                                <i class="material-icons" ng-if="cooler.status == 0" style="color:green;">check_circle</i>
-                                <i class="material-icons" ng-if="cooler.status == 1" style="color:yellow;">check_circle</i>
-                                <i class="material-icons" ng-if="cooler.status == 2" style="color:red;">check_circle</i>
-                            </td>
+                            <td>{{cooler.type}}</td>
                             <td align="center">
                                 <i class="material-icons" ng-if="cooler.isOnline" style="color:green;">check_box</i>
                                 <i class="material-icons" ng-if="!cooler.isOnline" style="color:red;">indeterminate_check_box</i>
