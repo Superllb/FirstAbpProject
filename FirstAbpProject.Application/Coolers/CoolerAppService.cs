@@ -55,7 +55,7 @@ namespace FirstAbpProject.Coolers
             coolerInput.IsDeleted = false;
 
             _slothRepository.InsertAndGetId(new Sloth {
-                Id = input.SlothId,
+                SlothId = input.SlothId,
                 ModelType = 0,
                 CameraCount = 2,
                 Status = Status.Alive,

@@ -13,6 +13,9 @@ namespace FirstAbpProject.Sloths
     [Table("Sloths")]
     public class Sloth : Entity<int>, IHasCreationTime, ISoftDelete
     {
+        [Index]
+        public virtual int SlothId { get; set; }
+
         public virtual string Name { get; set; }
 
         public virtual string ModelVersion { get; set; }

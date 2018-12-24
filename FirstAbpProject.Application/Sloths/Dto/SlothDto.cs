@@ -12,8 +12,7 @@ namespace FirstAbpProject.Sloths.Dto
     [AutoMapFrom(typeof(Sloth))]
     public class SlothDto : EntityDto<int>
     {
-        public virtual string Name { get; set; }
-
+        public virtual int SlothId { get; set; }
         public virtual string ModelVersion { get; set; }
 
         public virtual int ModelType { get; set; }
@@ -22,14 +21,6 @@ namespace FirstAbpProject.Sloths.Dto
 
         public virtual string Ip { get; set; }
 
-        public virtual int CameraCount { get; set; }
-
-        public virtual string CameraRowsList { get; set; }
-
         public virtual Status Status { get; set; }
-        
-        public virtual int? Gpsx { get; set; }
-
-        public virtual int? Gpsy { get; set; }
     }
 }

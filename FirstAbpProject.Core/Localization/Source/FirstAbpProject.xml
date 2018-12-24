@@ -146,6 +146,10 @@
     <text name="Sloths">Sloths</text>
     <text name="Sloth">Sloth</text>
     <text name="SlothId">Sloth Id</text>
+    <text name="ModelVersion">Model Version</text>
+    <text name="ModelType">Model Type</text>
+    <text name="JsonVersion">Json Version</text>
+    <text name="Ip">Ip</text>
     <text name="PleaseSelect" value="Please Select" />
     
   </texts>

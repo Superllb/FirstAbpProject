@@ -134,6 +134,10 @@
     <text name="Sloths">设备</text>
     <text name="Sloth">设备</text>
     <text name="SlothId">设备编号</text>
+    <text name="ModelVersion">模型版本</text>
+    <text name="ModelType">模型类型</text>
+    <text name="JsonVersion">JSON版本</text>
+    <text name="Ip">Ip</text>
     <text name="PleaseSelect" value="请选择" />
     
   </texts>
