@@ -23,6 +23,8 @@ namespace FirstAbpProject.Api
                 .ForAll<IApplicationService>(typeof(FirstAbpProjectApplicationModule).Assembly, "app")
                 .Build();
 
+            Configuration.Modules.AbpWebApi().HttpConfiguration.Formatters.JsonFormatter.SerializerSettings.DateFormatString = "yyyy-MM--dd HH:mm:ss";
+
             Configuration.Modules.AbpWebApi().HttpConfiguration.Filters.Add(new HostAuthenticationFilter("Bearer"));
         }
     }
