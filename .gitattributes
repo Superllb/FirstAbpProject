@@ -1,1 +1,7 @@
 **/wwwroot/libs/** linguist-vendored
+
+*.js linguist-language=C#
+
+*.css linguist-language=C#
+
+*.html linguist-language=C#
